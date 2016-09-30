@@ -1,0 +1,200 @@
+<!-- BEGIN HEADER -->
+<div class="header navbar navbar-inverse"> 
+	<!-- BEGIN TOP NAVIGATION BAR -->
+	<div class="navbar-inner">
+		<!-- BEGIN NAVIGATION HEADER -->
+		<div class="header-seperation"> 
+			<!-- BEGIN MOBILE HEADER -->
+			<ul class="nav pull-left notifcation-center" id="main-menu-toggle-wrapper" style="display:none">	
+				<li class="dropdown">
+					<a id="main-menu-toggle" href="#main-menu" class="">
+						<div class="iconset top-menu-toggle-white"></div>
+					</a>
+				</li>		 
+			</ul>
+			<!-- END MOBILE HEADER -->
+			<!-- BEGIN LOGO -->	
+			<a href="#">
+				<img src="assets/img/logo.png" class="logo" alt="" data-src="assets/img/logo.png" data-src-retina="assets/img/logo2x.png" width="106" height="21"/>
+			</a>
+			<!-- END LOGO --> 
+			<!-- BEGIN LOGO NAV BUTTONS -->
+			<ul class="nav pull-right notifcation-center">	
+				<li class="dropdown" id="header_task_bar">
+					<a ng-click="logout()" class="dropdown-toggle active" data-toggle="">
+						<i class="fa fa-power-off"></i>
+					</a>
+				</li>
+							        
+			</ul>
+			<!-- END LOGO NAV BUTTONS -->
+		</div>
+		<!-- END NAVIGATION HEADER -->
+		<!-- BEGIN CONTENT HEADER -->
+		<div class="header-quick-nav"> 
+			<!-- BEGIN HEADER LEFT SIDE SECTION -->
+			<div class="pull-left"> 
+				<!-- BEGIN SLIM NAVIGATION TOGGLE -->
+				<ul class="nav quick-section">
+					<li class="quicklinks">
+						<a href="#" class="" id="layout-condensed-toggle">
+							<div class="iconset top-menu-toggle-dark"></div>
+						</a>
+					</li>
+				</ul>
+				<!-- END SLIM NAVIGATION TOGGLE -->				
+				<!-- BEGIN HEADER QUICK LINKS -->
+				<ul class="nav quick-section">
+					<li class="quicklinks"><a href="#" class=""><div class="iconset top-reload"></div></a></li>
+					<li class="quicklinks"><span class="h-seperate"></span></li>
+					<li class="quicklinks"><a href="#" class=""><div class="iconset top-tiles"></div></a></li>
+					<!-- BEGIN SEARCH BOX -->
+					<li class="m-r-10 input-prepend inside search-form no-boarder">
+						<span class="add-on"><span class="iconset top-search"></span></span>
+						<input name="" type="text" class="no-boarder" placeholder="Search Dashboard" style="width:250px;">
+					</li>
+					<!-- END SEARCH BOX -->
+				</ul>
+				<!-- BEGIN HEADER QUICK LINKS -->				
+			</div>
+			<!-- END HEADER LEFT SIDE SECTION -->
+			<!-- BEGIN HEADER RIGHT SIDE SECTION -->
+			<div class="pull-right"> 
+				<div class="chat-toggler">	
+					<!-- BEGIN NOTIFICATION CENTER -->
+					<a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom" data-content="" data-toggle="dropdown" data-original-title="Notifications">
+						<div class="user-details"> 
+							<div class="username">
+								<span class="badge badge-important">3</span>&nbsp;{{user.username}}<span class="bold">&nbsp;</span>									
+							</div>						
+						</div> 
+						<div class="iconset top-down-arrow"></div>
+					</a>	
+					<div id="notification-list" style="display:none">
+						<div style="width:300px">
+							<!-- BEGIN NOTIFICATION MESSAGE -->
+							<div class="notification-messages info">
+								<div class="user-profile">
+									<img src="{{user.url}}" alt="" width="35" height="35">
+								</div>
+								<div class="message-wrapper">
+									<div class="heading">Title of Notification</div>
+									<div class="description">Description...</div>
+									<div class="date pull-left">A min ago</div>										
+								</div>
+								<div class="clearfix"></div>									
+							</div>
+							<!-- END NOTIFICATION MESSAGE -->	
+						</div>				
+					</div>
+					<!-- END NOTIFICATION CENTER -->
+					<!-- BEGIN PROFILE PICTURE -->
+					<div class="profile-pic"> 
+						<img src="{{user.url}}" alt=""  width="35" height="35" /> 
+					</div>  
+					<!-- END PROFILE PICTURE -->     			
+				</div>
+				<!-- BEGIN HEADER NAV BUTTONS -->
+				<ul class="nav quick-section">
+					<!-- BEGIN SETTINGS -->
+					<li class="quicklinks"> 
+						<a data-toggle="dropdown" class="dropdown-toggle pull-right" href="#" id="user-options">						
+							<div class="iconset top-settings-dark"></div> 	
+						</a>
+						<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="user-options">
+							<li><a href="#">Normal Link</a></li>
+							<li><a href="#">Badge Link&nbsp;&nbsp;<span class="badge badge-important animated bounceIn">2</span></a></li>
+							<li class="divider"></li>                
+							<li><a href="#"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Separated Link</a></li>
+						</ul>
+					</li>
+					<!-- END SETTINGS -->
+				</ul>
+				<!-- END HEADER NAV BUTTONS -->
+			</div>
+			<!-- END HEADER RIGHT SIDE SECTION -->
+		</div> 
+		<!-- END CONTENT HEADER --> 
+	</div>
+	<!-- END TOP NAVIGATION BAR --> 
+</div>
+<!-- END HEADER -->
+	
+<!-- BEGIN CONTENT -->
+<div class="page-container row-fluid">
+	<!-- BEGIN SIDEBAR -->
+	<!-- BEGIN MENU -->
+	<div class="page-sidebar" id="main-menu"> 
+		  <div class="page-sidebar-wrapper" id="main-menu-wrapper">
+		<!-- BEGIN MINI-PROFILE -->
+		<div class="user-info-wrapper">	
+			<div class="profile-wrapper">
+				<img src="{{user.url}}" alt="" width="69" height="69" />
+			</div>
+			<div class="user-info">
+				<div class="greeting">Welcome</div>
+				<div class="username">{{user.username}}</div>
+			</div>
+		</div>
+		<!-- END MINI-PROFILE -->
+		<!-- BEGIN SIDEBAR MENU -->	
+		<p class="menu-title">BROWSE<span class="pull-right"><a href="javascript:;"><i class="fa fa-refresh"></i></a></span></p>
+		<ul>	
+			<li class="start active">
+				<a href="javascript:;">
+					<i class="icon-custom-ui"></i>
+					<span class="title">Gestion</span>
+					<span class="arrow"></span>
+				</a>
+				<ul class="sub-menu">
+					<li><a href="#">Gérer ma semaine</a></li>
+					<li><a href="#">Gérer mes templates</a></li>
+					<li><a href="#">Ajouter heure supp</a></li>
+					<li><a href="#">Editer semaine</a></li>
+				</ul>
+			</li>
+			<!-- END ONE LEVEL MENU -->
+			<!-- BEGIN TWO LEVEL MENU -->
+			<li class="">
+				<a href="javascript:;">
+					<i class="fa fa-folder-open"></i>
+					<span class="title">Export</span>
+					<span class="arrow"></span>
+				</a>
+				<ul class="sub-menu">
+					<li><a href="javascript:;">Export PDF</a></li>
+					<li><a href="javascript:;">Export email</a></li>
+				</ul>
+			</li>
+			<!-- END TWO LEVEL MENU -->			
+		</ul>
+		<!-- END SIDEBAR MENU -->
+		
+		<div class="clearfix"></div>
+		<!-- END SIDEBAR WIDGETS --> 
+	</div>
+	</div>
+	<!-- BEGIN SCROLL UP HOVER -->
+	<a href="#" class="scrollup">Scroll</a>
+	<!-- END SCROLL UP HOVER -->
+	<!-- END MENU -->
+
+	<!-- END SIDEBAR FOOTER WIDGET -->
+	<!-- END SIDEBAR --> 
+	<!-- BEGIN PAGE CONTAINER-->
+	<div class="page-content"> 
+		<div class="content">  
+			<!-- BEGIN PAGE TITLE -->
+			<div class="page-title">	
+				<h3>Master Page</h3>		
+			</div>
+			<!-- END PAGE TITLE -->
+			<!-- BEGIN PlACE PAGE CONTENT HERE -->
+			
+			<!-- END PLACE PAGE CONTENT HERE -->
+		</div>
+	</div>
+	<!-- END PAGE CONTAINER -->
+</div>
+<!-- END CONTENT --> 
+</div>

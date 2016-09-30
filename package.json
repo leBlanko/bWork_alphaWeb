@@ -1,0 +1,17 @@
+{
+  "name": "bWork_alphaWeb",
+  "main": "server.js",
+  "dependencies": {
+    "angular-momentjs": "^0.2.2",
+    "bcrypt": "^0.8.6",
+    "body-parser": "^1.15.0",
+    "bower-config": "^1.4.0",
+    "express": "^4.13.4",
+    "jwt-simple": "^0.5.0",
+    "method-override": "^2.3.5",
+    "moment": "^2.13.0",
+    "mongoose": "4.5.8",
+    "request": "^2.72.0",
+    "q": "^1.4.1"
+  }
+}
