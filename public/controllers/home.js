@@ -13,19 +13,19 @@ app.controller('HomeCtrl', ['$scope', '$cookieStore', '$window', '$http', 'toast
         document.body.appendChild(jsElm);
     }
 
-    loadJs("../assets/plugins/jquery-1.8.3.min.js");
-    loadJs("../assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js");
-    loadJs("../assets/plugins/boostrapv3/js/bootstrap.min.js");
-    loadJs("../assets/plugins/breakpoints.js");
-    loadJs("../assets/plugins/jquery-unveil/jquery.unveil.min.js");
-    loadJs("../assets/plugins/jquery-block-ui/jqueryblockui.js")
-    loadJs("../assets/plugins/jquery-slider/jquery.sidr.min.js")
-    loadJs("../assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js")
-    loadJs("../assets/plugins/pace/pace.min.js")
-    loadJs("../assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js")
-    loadJs("../assets/js/core.js")
-    loadJs("../assets/js/chat.js")
-    loadJs("../assets/js/demo.js")
+    // loadJs("../assets/plugins/jquery-1.8.3.min.js");
+    // loadJs("../assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js");
+    // loadJs("../assets/plugins/boostrapv3/js/bootstrap.min.js");
+    // loadJs("../assets/plugins/breakpoints.js");
+    // loadJs("../assets/plugins/jquery-unveil/jquery.unveil.min.js");
+    // loadJs("../assets/plugins/jquery-block-ui/jqueryblockui.js")
+    // loadJs("../assets/plugins/jquery-slider/jquery.sidr.min.js")
+    // loadJs("../assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js")
+    // loadJs("../assets/plugins/pace/pace.min.js")
+    // loadJs("../assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js")
+    // loadJs("../assets/js/core.js")
+    // loadJs("../assets/js/chat.js")
+    // loadJs("../assets/js/demo.js")
 
     $scope.logout = function() {
 

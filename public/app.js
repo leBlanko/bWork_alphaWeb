@@ -6,9 +6,17 @@ angular.module('bWork_alphaWeb', ['ngResource', 'ngMessages', 'ngAnimate', 'toas
         url: '/',
         controller: 'HomeCtrl',
         templateUrl: 'views/home.html',
-        resolve: {
+        /*resolve: {
           loginRequired: loginRequired
-        }
+        }*/
+      })
+      .state('handleWeek', {
+        url: '/handleWeek',
+        controller: 'HandleWeekCtrl',
+        templateUrl: 'views/handleWeek.html',
+        /*resolve: {
+          loginRequired: loginRequired
+        }*/
       })
       .state('login', {
         url: '/login',

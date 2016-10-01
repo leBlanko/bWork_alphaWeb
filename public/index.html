@@ -25,6 +25,87 @@
 
 </head>
 <body class="",ng-app="bWork_alphaWeb">
+<!-- BEGIN HEADER -->
+<div class="header navbar navbar-inverse">
+	<div class="navbar-inner">
+		<div class="header-seperation"> 
+			<!-- BEGIN MOBILE HEADER -->
+			<ul class="nav pull-left notifcation-center" id="main-menu-toggle-wrapper" style="display:none">
+				<li class="dropdown">
+					<a id="main-menu-toggle" href="#main-menu" class="">
+						<div class="iconset top-menu-toggle-white"></div>
+					</a>
+				</li> 
+			</ul>
+			<!-- END MOBILE HEADER -->
+			<!-- BEGIN LOGO -->
+			<a href="#">
+				<img src="assets/img/logo.png" class="logo" alt="" data-src="assets/img/logo.png" data-src-retina="assets/img/logo2x.png" width="106" height="21"/>
+			</a>
+			<!-- END LOGO --> 
+			<!-- BEGIN LOGO NAV BUTTONS -->
+			<ul class="nav pull-right notifcation-center">
+				<li class="dropdown" id="header_task_bar">
+					<a ng-click="logout()" class="dropdown-toggle active" data-toggle="">
+						<i class="fa fa-power-off"></i>
+					</a>
+				</li>       
+			</ul>
+			<!-- END LOGO NAV BUTTONS -->
+		</div>
+	</div>
+</div>
+<!-- END HEADER -->
+	
+<!-- BEGIN CONTENT -->
+<div class="page-container row-fluid">
+	<!-- BEGIN SIDEBAR -->
+	<!-- BEGIN MENU -->
+	<div class="page-sidebar" id="main-menu"> 
+		  <div class="page-sidebar-wrapper" id="main-menu-wrapper">
+		<!-- BEGIN SIDEBAR MENU -->	
+		<ul>	
+			<li class="start active">
+				<a href="javascript:;">
+					<i class="icon-custom-ui"></i>
+					<span class="title">Gestion</span>
+					<span class="arrow"></span>
+				</a>
+				<ul class="sub-menu">
+					<li><a href="#/handleWeek">Gérer ma semaine</a></li>
+					<li><a href="#">Gérer mes templates</a></li>
+					<li><a href="#">Ajouter heure supp</a></li>
+					<li><a href="#">Editer semaine</a></li>
+				</ul>
+			</li>
+			<!-- END ONE LEVEL MENU -->
+			<!-- BEGIN TWO LEVEL MENU -->
+			<li class="">
+				<a href="javascript:;">
+					<i class="fa fa-folder-open"></i>
+					<span class="title">Export</span>
+					<span class="arrow"></span>
+				</a>
+				<ul class="sub-menu">
+					<li><a href="javascript:;">Export PDF</a></li>
+					<li><a href="javascript:;">Export email</a></li>
+				</ul>
+			</li>
+			<!-- END TWO LEVEL MENU -->			
+		</ul>
+		<!-- END SIDEBAR MENU -->
+		
+		<div class="clearfix"></div>
+		<!-- END SIDEBAR WIDGETS --> 
+	</div>
+	</div>
+	<!-- BEGIN SCROLL UP HOVER -->
+	<a href="#" class="scrollup">Scroll</a>
+	<!-- END SCROLL UP HOVER -->
+	<!-- END MENU -->
+
+	<!-- END SIDEBAR FOOTER WIDGET -->
+	<!-- END SIDEBAR --> 
 <div ui-view></div>
 
 <!-- BEGIN CORE JS FRAMEWORK--> 
@@ -60,6 +141,7 @@
 <script src="app.js"></script>
 <script src="controllers/home.js"/></script>
 <script src="controllers/login.js"/></script>
+<script src="controllers/handleWeek.js"/></script>
 <script src="satellizer.js"></script>
 
 
