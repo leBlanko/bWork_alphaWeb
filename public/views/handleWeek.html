@@ -1,7 +1,39 @@
 	
 	<!-- BEGIN PAGE CONTAINER-->
 	<div class="page-content"> 
-		<div class="content">  
+
+		<!-- BEGIN MODALS -->
+		<div class="modal modal-content" id="AddWeek-modal" style="overflow:visible; position:fixed; top:15%; left:10%; right:10%; bottom:20%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Fermer</span></button>
+                <h4 class="modal-title">Horaires de ta semaine</h4>
+            </div>
+         	<div class="modal-body" style="height: inherit; overflow:visible;">
+               	TEST
+               	<button class="btn btn-success btn-cons" onclick="">Ajouter</button>
+           	</div>
+       	</div>
+
+		<div class="modal modal-content" id="ChooseTemplate-modal" style="overflow:visible; position:fixed; top:15%; left:10%; right:10%; bottom:50%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Fermer</span></button>
+                <h4 class="modal-title">Template</h4>
+            </div>
+         	<div class="modal-body" style="height: inherit; overflow:visible;"><center>
+				<h4>Selectionne ta template</h4>
+				<select name="selectTemplate" required="true">
+				  	<option value="volvo">Template 1</option>
+				  	<option value="saab">Template 2</option>
+					<option value="opel">Template 3</option>
+			  		<option value="audi">Template 4</option>
+				</select>
+               	<button class="btn btn-success btn-large btn-cons" onclick="">Ajouter</button>
+           	</center></div>
+       	</div>
+
+       	<!-- END MODALS -->
+
+		<div class="content"><center>
 			<!-- BEGIN PAGE TITLE -->
 			<div class="page-title">	
 				<h3>Gérer ma semaine</h3>		
@@ -9,9 +41,32 @@
 			<!-- END PAGE TITLE -->
 			<!-- BEGIN PlACE PAGE CONTENT HERE -->
 			
+			<div class="well">
+				<h4>Selectionne ta semaine</h4>
+				<select autofocus="true" name="selectWeek" required="true">
+				  <option value="volvo">Semaine 23</option>
+				  <option value="saab">Semaine 24</option>
+				  <option value="opel">Semaine 25</option>
+				  <option value="audi">Semaine 26</option>
+				</select>
+			</div>
+
+			<div class="well well-small">
+				<h4>Selectionne le mode de remplissage</h4>
+
+				<button class="btn btn-primary btn-cons" data-toggle="modal" data-target="#AddWeek-modal" type="button" style="height: 100px;">
+					Nouvelle semaine
+				</button>
+
+				<button class="btn btn-primary btn-cons" data-toggle="modal" data-target="#ChooseTemplate-modal" type="button" style="height: 100px;">
+					Choisir template
+				</button>
+
+			</div>
+
 			<!-- END PLACE PAGE CONTENT HERE -->
 		</div>
-	</div>
+	</center></div>
 	<!-- END PAGE CONTAINER -->
 </div>
 <!-- END CONTENT --> 
