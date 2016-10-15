@@ -1,23 +1,22 @@
-var Day = require('../models/Day');
+var day = require('../models/Day');
 
 module.exports = {
 	configure: function(app) {
-		// User
 
-		app.get('/day/', function(req, res) {
-			user.get(res);
+		app.get('/days/', function(req, res) {
+			day.get(res);
 		});
 
 		app.get('/day/:id/', function(req, res) {
-			user.getUserById(req.params.id, res);
+			day.getDayById(req.params.id, res);
 		})
 
 		app.post('/day/', function(req, res) {
-			user.create(req.body, res);
+			day.create(req.body, res);
 		});
 
-		app.put('/day/:name/:firstname/:password/:id', function(req, res) {
-			user.update(req.params.name, req.params.firstname, req.params.password, req.params.id, res);
+		app.put('/day/:day/:id', function(req, res) {
+			day.update(req.params.day, req.params.id, res);
 		});
 	}
 };

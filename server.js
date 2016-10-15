@@ -6,14 +6,7 @@ var httpServer = require("http").createServer(app);
 var userRoute = require('./routes/user');
 var dayRoute = require('./routes/day');
 var templateRoute = require('./routes/template');
-
-// load mongoose package
-var mongoose = require('mongoose');
-
-// Use native Node promises
-mongoose.Promise = global.Promise;
-
-mongoose.connect('localhost');
+var connection = require('./config/connection');
 
 // set our port
 var port = 3000;
@@ -23,7 +16,7 @@ app.use(bodyParser.json());
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
-  extended: true
+	extended: true
 }));
 
 // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
@@ -33,11 +26,12 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(__dirname + '/public'));
 
 //load basic route for server
-require('./routes/index')(app);
-require('./routes/auth')(app);
+require('./routesServer/index')(app);
+require('./routesServer/auth')(app);
 
 // startup our app at http://localhost:3000
 httpServer.listen(port);
+connection.init();
 userRoute.configure(app);
 dayRoute.configure(app);
 templateRoute.configure(app);

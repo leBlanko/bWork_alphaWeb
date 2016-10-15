@@ -1,35 +1,22 @@
-var User = require('../models/User');
+var user = require('../models/User');
 
 module.exports = {
     configure: function(app) {
-        // User
 
-        app.get('/user/', function(req, res) {
-            User.find(function(err, users) {
-                if (err) return next(err);
-                res.json(users);
-            });
+        app.get('/users/', function(req, res) {
+            user.get(res);
         });
 
         app.get('/user/:id/', function(req, res) {
-            User.findById(req.params.id, function(err, post) {
-                if (err) return next(err);
-                res.json(post);
-            });
+            user.getUserById(req.params.id, res);
         })
 
         app.post('/user/', function(req, res) {
-            User.create(req.body, function(err, post) {
-                if (err) return next(err);
-                res.json(post);
-            });
+            user.create(req.body, res);
         });
 
-        app.put('/user/:id', function(req, res) {
-            User.findByIdAndUpdate(req.params.id, req.body, function(err, post) {
-                if (err) return next(err);
-                res.json(post);
-            });
+        app.put('/user/:username/:password/:id', function(req, res) {
+            user.update(req.params.username, req.params.password, req.params.id, res);
         });
     }
 };
