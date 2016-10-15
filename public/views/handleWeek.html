@@ -10,7 +10,7 @@
             </div>
          	<div class="modal-body" style="height: inherit; overflow:visible;">
                	TEST
-               	<button class="btn btn-success btn-cons" onclick="">Ajouter</button>
+               	<button class="btn btn-success btn-cons">Ajouter</button>
            	</div>
        	</div>
 
@@ -22,10 +22,7 @@
          	<div class="modal-body" style="height: inherit; overflow:visible;"><center>
 				<h4>Selectionne ta template</h4>
 				<select name="selectTemplate" required="true">
-				  	<option value="volvo">Template 1</option>
-				  	<option value="saab">Template 2</option>
-					<option value="opel">Template 3</option>
-			  		<option value="audi">Template 4</option>
+				  	<option ng-repeat="template in templates" value="volvo">{{template.name}}</option>
 				</select>
                	<button class="btn btn-success btn-large btn-cons" onclick="">Ajouter</button>
            	</center></div>
@@ -44,10 +41,7 @@
 			<div class="well">
 				<h4>Selectionne ta semaine</h4>
 				<select autofocus="true" name="selectWeek" required="true">
-				  <option value="volvo">Semaine 23</option>
-				  <option value="saab">Semaine 24</option>
-				  <option value="opel">Semaine 25</option>
-				  <option value="audi">Semaine 26</option>
+				  <option ng-repeat="week in weeks" value="volvo">Semaine {{week.number}} ({{week.firstday}} - {{week.lastday}})</option>
 				</select>
 			</div>
 

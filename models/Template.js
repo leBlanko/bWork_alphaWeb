@@ -9,6 +9,7 @@ Template.prototype.setName = function(name) {
 }
 
 
+
 Template.prototype.get = function(res) {
 	connection.acquire(function(err, con) {
 		con.query('select * from template', function(err, result) {
@@ -17,7 +18,6 @@ Template.prototype.get = function(res) {
 		});
 	});
 }
-
 
 Template.prototype.getTemplateById = function(id, res) {
 	connection.acquire(function(err, con) {

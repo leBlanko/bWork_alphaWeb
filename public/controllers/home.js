@@ -1,7 +1,7 @@
 var app = angular.module('bWork_alphaWeb');
 app.run();
 
-app.controller('HomeCtrl', ['$scope', '$cookieStore', '$window', '$http', 'toastr', '$auth', '$location', function($scope, $cookieStore, $window, $http, toastr, $auth, $location) {
+app.controller('HomeCtrl', ['$scope', '$cookieStore', '$window', '$http', 'toastr', '$auth', '$location', 'templateData', function($scope, $cookieStore, $window, $http, toastr, $auth, $location, templateData) {
     var loadJs = function(file) {
         // DOM: Create the script element
         var jsElm = document.createElement("script");
@@ -12,6 +12,20 @@ app.controller('HomeCtrl', ['$scope', '$cookieStore', '$window', '$http', 'toast
         // finally insert the element to the body element in order to load the script
         document.body.appendChild(jsElm);
     }
+
+    templateData.getTemplates().then(function(data) {
+        data.data
+
+            [{
+            id: 1,
+            day: 10 / 10 / 2016
+        }, {
+
+        }]
+
+    });
+
+
 
     // loadJs("../assets/plugins/jquery-1.8.3.min.js");
     // loadJs("../assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js");

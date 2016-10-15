@@ -12,13 +12,6 @@ function Connection() {
       database: 'bwork_alphaWeb',
       socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
     });
-    // this.pool = mysql.createPool({
-    //   connectionLimit: 10,
-    //   host: 'localhost',
-    //   user: 'root',
-    //   password: 'timmy62',
-    //   database: 'download'
-    // });
 
     this.pool.on('connection', function(connection) {
       console.log('connected to mysql db');
