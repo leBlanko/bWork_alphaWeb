@@ -9,8 +9,94 @@
                 <h4 class="modal-title">Horaires de ta semaine</h4>
             </div>
          	<div class="modal-body" style="height: inherit; overflow:visible;">
-               	TEST
-               	<button class="btn btn-success btn-cons">Ajouter</button>
+               	<center>
+               		<div id="newWeek">
+               			<div class="row"><span class="col-xs-3 day">Lundi: </span></div>
+               			<div class="row">
+               				<span class="col-xs-4">Matin: De</span>
+               				<input class="col-xs-3" type="time" name="begin_time_morning_1">
+               				<span class="col-xs-2"> à </span>
+               				<input class="col-xs-3" type="time" name="end_time_morning_1">
+               			</div>
+
+               			<div class="row">
+               				<span class="col-xs-4">Aprem: De</span>
+               				<input class="col-xs-3" type="time" name="begin_time_afternoon_1">
+               				<span class="col-xs-2"> à </span>
+               				<input class="col-xs-3" type="time" name="end_time_afternoon_1">
+               			</div>
+
+               			<div class="row"><span class="col-xs-3 day">Mardi: </span></div>
+               			<div class="row">
+               				<span class="col-xs-4">Matin: De</span>
+               				<input class="col-xs-3" type="time" name="begin_time_morning_2">
+               				<span class="col-xs-2"> à </span>
+               				<input class="col-xs-3" type="time" name="end_time_morning_2">
+               			</div>
+
+               			<div class="row">
+               				<span class="col-xs-4">Aprem: De</span>
+               				<input class="col-xs-3" type="time" name="begin_time_afternoon_2">
+               				<span class="col-xs-2"> à </span>
+               				<input class="col-xs-3" type="time" name="end_time_afternoon_2">
+               			</div>
+
+               			<div class="row"><span class="col-xs-3 day">Mercredi: </span></div>
+               			<div class="row">
+               				<span class="col-xs-4">Matin: De</span>
+               				<input class="col-xs-3" type="time" name="begin_time_morning_3">
+               				<span class="col-xs-2"> à </span>
+               				<input class="col-xs-3" type="time" name="end_time_morning_3">
+               			</div>
+
+               			<div class="row">
+               				<span class="col-xs-4">Aprem: De</span>
+               				<input class="col-xs-3" type="time" name="begin_time_afternoon_3">
+               				<span class="col-xs-2"> à </span>
+               				<input class="col-xs-3" type="time" name="end_time_afternoon_3">
+               			</div>
+
+               			<div class="row"><span class="col-xs-3 day">Jeudi: </span></div>
+               			<div class="row">
+               				<span class="col-xs-4">Matin: De</span>
+               				<input class="col-xs-3" type="time" name="begin_time_morning_4">
+               				<span class="col-xs-2"> à </span>
+               				<input class="col-xs-3" type="time" name="end_time_morning_4">
+               			</div>
+
+               			<div class="row">
+               				<span class="col-xs-4">Aprem: De</span>
+               				<input class="col-xs-3" type="time" name="begin_time_afternoon_5">
+               				<span class="col-xs-2"> à </span>
+               				<input class="col-xs-3" type="time" name="end_time_afternoon_5">
+               			</div>
+
+               			<div class="row"><span class="col-xs-3 day">Vendredi: </span></div>
+               			<div class="row">
+               				<span class="col-xs-4">Matin: De</span>
+               				<input class="col-xs-3" type="time" name="begin_time_morning_6">
+               				<span class="col-xs-2"> à </span>
+               				<input class="col-xs-3" type="time" name="end_time_morning_6">
+               			</div>
+
+               			<div class="row">
+               				<span class="col-xs-4">Aprem: De</span>
+               				<input class="col-xs-3" type="time" name="begin_time_afternoon_6">
+               				<span class="col-xs-2"> à </span>
+               				<input class="col-xs-3" type="time" name="end_time_afternoon_6">
+               			</div>
+
+               			<div class="row"><span class="col-xs-3 day">Samedi: </span></div>
+               			<div class="row">
+               				<span class="col-xs-4">Matin: De</span>
+               				<input class="col-xs-3" type="time" name="begin_time_morning_7">
+               				<span class="col-xs-2"> à </span>
+               				<input class="col-xs-3" type="time" name="end_time_morning_7">
+               			</div>
+
+               		</div>
+               		<button class="btn btn-success btn-cons" style="margin-top: 10px;">Ajouter</button>
+               	</center>
            	</div>
        	</div>
 
@@ -65,3 +151,19 @@
 </div>
 <!-- END CONTENT --> 
 </div>
+
+<style type="text/css">
+	
+	.day
+	{
+		font-size: 18px;
+		text-transform: bold;
+		color: black;
+	}
+	#newWeek
+	{
+		height: 200px;
+		overflow-y: scroll;
+		overflow-x: hidden;
+	}
+</style>
