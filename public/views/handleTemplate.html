@@ -1,0 +1,39 @@
+<!-- BEGIN PAGE CONTAINER-->
+	<div class="page-content">
+
+		<div class="content"><center>
+			<!-- BEGIN PAGE TITLE -->
+			<div class="page-title">	
+				<h3>Gérer mes templates</h3>		
+			</div>
+			<!-- END PAGE TITLE -->
+			
+			<table class="table table-striped">
+    			<thead>
+			      <tr>
+			        <th>id</th>
+			        <th>Nom</th>
+			        <th>TimeLine</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr ng-repeat="template in templates">
+			        <td>{{template.id}}</td>
+			        <td>{{template.name}}</td>
+			        <td>{{template.timeline}}</td>
+			        <td>
+				        <div class="btn-group">
+				        	<a href="#/handleTemplate" data-toggle="dropdown" class="btn dropdown-toggle btn-demo-space">
+				        		 <span class="caret"></span>
+				        	</a>
+	               			<ul class="dropdown-menu">
+	                 			<li><a href="#">Details</a></li>
+	                 			<li><a href="#">Supprimer</a></li>
+	               			</ul>
+	             		</div>
+             		</td>
+			      </tr>
+			    </tbody>
+			</table>
+
+	</div> <!-- END PAGE CONTAINER-->

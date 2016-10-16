@@ -18,6 +18,14 @@ angular.module('bWork_alphaWeb', ['ngResource', 'ngMessages', 'ngAnimate', 'toas
           loginRequired: loginRequired
         }*/
       })
+      .state('handleTemplate', {
+        url: '/handleTemplate',
+        controller: 'HandleWeekCtrl',
+        templateUrl: 'views/handleTemplate.html',
+        /*resolve: {
+          loginRequired: loginRequired
+        }*/
+      })
       .state('login', {
         url: '/login',
         templateUrl: 'views/login.html',
