@@ -126,8 +126,8 @@
 			
 			<div class="well">
 				<h4>Selectionne ta semaine</h4>
-				<select autofocus="true" name="selectWeek" required="true">
-				  <option ng-repeat="week in weeks" value="volvo">Semaine {{week.number}} ({{week.firstday}} - {{week.lastday}})</option>
+				<select autofocus="true" name="selectWeek" id="selectWeek" required="true">
+				  <option ng-repeat="week in weeks"  value="{{week.number}}" ng-selected="currentWeekPlusOne==week.number">Semaine {{week.number}} ({{week.firstday}} - {{week.lastday}})</option>
 				</select>
 			</div>
 

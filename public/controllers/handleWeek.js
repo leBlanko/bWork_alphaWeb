@@ -5,40 +5,36 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 
 	$scope.templates = [];
 	$scope.weeks = [];
+	$scope.currentWeekPlusOne = 0;
 
 	templateData.getTemplates().then(function(res) {
 
 		$scope.templates = res.data;
 	});
 
+	var dateFromWeekNumber = function(year, week) {
+		var days = [];
+		var d = new Date(year, 0, 1);
+		var d1 = new Date(year, 0, 1);
+		var dayNum = d.getDay();
+		var diff = --week * 7;
 
-
-	var getDays = function(year, week) {
-		var j10 = new Date(year, 0, 10, 12, 0, 0),
-			j4 = new Date(year, 0, 4, 12, 0, 0),
-			mon = j4.getTime() - j10.getDay() * 86400000,
-			result = [];
-
-		for (var i = -1; i < 6; i++) {
-			result.push(new Date(mon + ((week - 1) * 7 + i) * 86400000));
+		if (!dayNum || dayNum > 4) {
+			diff += 7;
 		}
 
-		return result;
+		d.setDate(d.getDate() - d.getDay() + ++diff);
+		d1.setDate(d1.getDate() - d1.getDay() + ++diff + 4);
+		days.push(d, d1);
+		return days;
 	}
 
-
 	var getWeekNumber = function(d) {
-		// Copy date so don't modify original
 		d = new Date(+d);
 		d.setHours(0, 0, 0);
-		// Set to nearest Thursday: current date + 4 - current day number
-		// Make Sunday's day number 7
 		d.setDate(d.getDate() + 4 - (d.getDay() || 7));
-		// Get first day of year
 		var yearStart = new Date(d.getFullYear(), 0, 1);
-		// Calculate full weeks to nearest Thursday
 		var weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7)
-			// Return array of year and week number
 		return [d.getFullYear(), weekNo];
 	}
 
@@ -47,8 +43,6 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 			day = 31,
 			week;
 
-		// Find week that 31 Dec is in. If is first week, reduce date until
-		// get previous week.
 		do {
 			d = new Date(year, month, day--);
 			week = getWeekNumber(d)[1];
@@ -57,22 +51,65 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 		return week;
 	}
 
+	Date.prototype.getWeek = function() {
+		var determinedate = new Date();
+		determinedate.setFullYear(this.getFullYear(), this.getMonth(), this.getDate());
+		var D = determinedate.getDay();
+		if (D == 0) D = 7;
+		determinedate.setDate(determinedate.getDate() + (4 - D));
+		var YN = determinedate.getFullYear();
+		var ZBDoCY = Math.floor((determinedate.getTime() - new Date(YN, 0, 1, -6)) / 86400000);
+		var WN = Math.floor(ZBDoCY / 7);
+		return WN;
+	}
 
 
 	var d = new Date();
-	var currentYear = d.getYear();
+	var currentYear = d.getFullYear();
+	console.log(d, d.getWeek());
+	$scope.currentWeekPlusOne = parseInt(d.getWeek()) + 1;
 
 	var weeks = weeksInYear(currentYear);
 
-	for (i = 0; i < weeks; i++) {
-		var days = getDays(currentYear, i);
+	for (i = 1; i <= weeks; i++) {
+		var days = dateFromWeekNumber(currentYear, i);
+		var day, day1;
+		var month, month1;
+
+		var format = function(type, data) {
+			if (type == "day") {
+				var dayFormat;
+				if (data.getDate() < 10) {
+					dayFormat = "0" + data.getDate();
+				} else {
+					dayFormat = data.getDate();
+				}
+
+				return dayFormat;
+			} else {
+				var monthFormat;
+				var month = parseInt(data.getMonth() + 1);
+				if (month < 10) {
+					monthFormat = "0" + month;
+				} else {
+					monthFormat = month;
+				}
+				return monthFormat;
+			}
+		}
+
+		day = format("day", days[0]);
+		day1 = format("day", days[1]);
+		month = format("month", days[0]);
+		month1 = format("month", days[1]);
 
 		var week = {
 			number: i,
-			firstday: new Date(days[1]),
-			lastday: new Date(days[days.length - 1])
+			firstday: day + "/" + month + "/" + days[0].getFullYear(),
+			lastday: day1 + "/" + month1 + "/" + days[1].getFullYear()
 		}
 
 		$scope.weeks.push(week);
 	}
+
 }]);
