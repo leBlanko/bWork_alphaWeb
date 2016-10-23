@@ -1,16 +1,61 @@
 var connection = require("../config/connection");
 
-function Day(day, year) {
+function Day(minNormal, minSup, minRecup, day, month, year, beginMorning, endMorning, beginAfternoon, endAfternoon) {
+	this.minNormal = minNormal;
+	this.minSup = minSup;
+	this.minRecup = minRecup;
 	this.day = day;
+	this.month = month;
 	this.year = year;
+	this.beginMorning - beginMorning;
+	this.endMorning = endMorning;
+	this.beginAfternoon = beginAfternoon;
+	this.endAfternoon = endAfternoon;
 }
 
+function Day(beginMorning, endMorning, beginAfternoon, endAfternoon)
+{
+	this.minNormal = beginMorning;
+	this.minSup = 0;
+	this.minRecup = 0;
+	this.day=11; //A CHANGER , pour les test
+	this.month = 12; //A CHANGER , pour les test
+	this.year = 2016; //A CHANGER , pour les test
+	this.beginMorning = beginMorning;
+	this.endMorning = endMorning;
+	this.beginAfternoon = beginAfternoon;
+	this.endAfternoon = endAfternoon;
+}
+
+Day.prototype.setMinNormal = function(mins) {
+	this.hNormal = mins;
+}
+Day.prototype.setMinSup = function(mins) {
+	this.hSup = mins;
+}
+Day.prototype.setMinRecup = function(mins) {
+	this.minRecup = mins;
+}
 Day.prototype.setDay = function(day) {
 	this.day = day;
 }
-
+Day.prototype.setMonth = function(month) {
+	this.month = month;
+}
 Day.prototype.setYear = function(year) {
 	this.year = year;
+}
+Day.prototype.setBeginMorning = function(mins) {
+	this.beginMorning = mins;
+}
+Day.prototype.setEndMorning = function(mins) {
+	this.endMorning = mins;
+}
+Day.prototype.setBeginAfternoon = function(mins) {
+	this.beginAfternoon = mins;
+}
+Day.prototype.setEndAfternoon = function(mins) {
+	this.endAfternoon = mins;
 }
 
 

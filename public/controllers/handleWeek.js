@@ -1,7 +1,7 @@
 var app = angular.module('bWork_alphaWeb');
 app.run();
 
-app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 'toastr', '$auth', '$location', 'templateData', function($scope, $cookieStore, $window, $http, toastr, $auth, $location, templateData) {
+app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 'toastr', '$auth', '$location', 'templateData', 'dayData', function($scope, $cookieStore, $window, $http, toastr, $auth, $location, templateData, dayData) {
 
 	$scope.templates = [];
 	$scope.weeks = [];
@@ -11,6 +11,18 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 
 		$scope.templates = res.data;
 	});
+
+	$scope.AddWeek = function(DayModel) {
+		//console.log(DayModel.selectWeek);
+
+		//var day = new Day(DayModel.Monday.begin_time_morning, DayModel.Monday.end_time_morning, DayModel.begin_time_afternoon, DayModel.end_time_afternoon);
+    	var day = 1;
+		dayData.create(day).then(function(res)
+		{
+
+		});
+
+	};
 
 	var dateFromWeekNumber = function(year, week) {
 		var days = [];
