@@ -13,6 +13,7 @@ var color_info = "#3b4751";
 
 $(document).ready(function() {
     calculateHeight();
+
     $(".remove-widget").click(function() {
         $(this).parent().parent().parent().addClass('animated fadeOut');
         $(this).parent().parent().parent().attr('id', 'id_a');
@@ -118,7 +119,9 @@ $(document).ready(function() {
     //*********************************** END CHAT POPUP*****************************	
 
     //**********************************BEGIN MAIN MENU********************************
+
     jQuery('.page-sidebar li > a').on('click', function(e) {
+        console.log('ici');
         if ($(this).next().hasClass('sub-menu') === false) {
             return;
         }

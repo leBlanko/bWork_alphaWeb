@@ -1,155 +1,152 @@
-	
-	<!-- BEGIN PAGE CONTAINER-->
-	<div class="page-content"> 
+<!-- BEGIN PAGE CONTAINER-->
+<div class="page-content"> 
+    <modal visible="showModalWeek">
+        <div>
+            <modal-header title="Horaires de ta semaine"></modal-header>
+            <modal-body>
+                <center>
+                    <div id="newWeek">
+                        <form name='dayForm', novalidate>
+                            <div class="row"><span class="col-xs-3 day" ng-model="day.monday.day">Lundi({{modalDisplay[0]}}): </span></div>
+                            <div class="row">
+                                <span class="col-xs-4">Matin: De</span>
+                                <input class="col-xs-3" type="time" ng-model="day.monday.begin_time_morning" ng-required="required" name="begin_time_morning_1">
+                                <span class="col-xs-2"> à </span>
+                                <input class="col-xs-3" type="time" ng-model="day.monday.end_time_morning" ng-required="required" name="end_time_morning_1">
+                             </div>
 
-		<!-- BEGIN MODALS -->
-		<div class="modal modal-content" id="AddWeek-modal" style="overflow:visible; position:fixed; top:15%; left:10%; right:10%; bottom:20%;">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Fermer</span></button>
-                <h4 class="modal-title">Horaires de ta semaine</h4>
-            </div>
-         	<div class="modal-body" style="height: inherit; overflow:visible;">
-               	<center>
-               		<div id="newWeek">
-               			<div class="row"><span class="col-xs-3 day">Lundi: </span></div>
-               			<div class="row">
-               				<span class="col-xs-4">Matin: De</span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Monday.begin_time_morning" name="begin_time_morning_1">
-               				<span class="col-xs-2"> à </span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Monday.end_time_morning" name="end_time_morning_1">
-               			</div>
+                             <div class="row">
+                                <span class="col-xs-4">Aprem: De</span>
+                                <input class="col-xs-3" type="time" ng-model="day.monday.begin_time_afternoon" ng-required="required" name="begin_time_afternoon_1">
+                                <span class="col-xs-2"> à </span>
+                                <input class="col-xs-3" type="time" ng-model="day.monday.end_time_afternoon" ng-required="required" name="end_time_afternoon_1">
+                             </div>
 
-               			<div class="row">
-               				<span class="col-xs-4">Aprem: De</span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Monday.begin_time_afternoon" name="begin_time_afternoon_1">
-               				<span class="col-xs-2"> à </span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Monday.end_time_afternoon" name="end_time_afternoon_1">
-               			</div>
+                             <div class="row"><span class="col-xs-3 day">Mardi({{modalDisplay[1]}}): </span></div>
+                             <div class="row">
+                                <span class="col-xs-4">Matin: De</span>
+                                <input class="col-xs-3" type="time" ng-model="day.tuesday.begin_time_morning" ng-required="required" name="begin_time_morning_2">
+                                <span class="col-xs-2"> à </span>
+                                <input class="col-xs-3" type="time" ng-model="day.tuesday.end_time_morning" ng-required="required" name="end_time_morning_2">
+                             </div>
 
-               			<div class="row"><span class="col-xs-3 day">Mardi: </span></div>
-               			<div class="row">
-               				<span class="col-xs-4">Matin: De</span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Tuesday.begin_time_morning" name="begin_time_morning_2">
-               				<span class="col-xs-2"> à </span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Tuesday.end_time_morning" name="end_time_morning_2">
-               			</div>
+                             <div class="row">
+                                <span class="col-xs-4">Aprem: De</span>
+                                <input class="col-xs-3" type="time" ng-model="day.tuesday.begin_time_afternoon" ng-required="required" name="begin_time_afternoon_2">
+                                <span class="col-xs-2"> à </span>
+                                <input class="col-xs-3" type="time" ng-model="day.tuesday.end_time_afternoon" ng-required="required" name="end_time_afternoon_2">
+                             </div>
 
-               			<div class="row">
-               				<span class="col-xs-4">Aprem: De</span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Tuesday.begin_time_afternoon" name="begin_time_afternoon_2">
-               				<span class="col-xs-2"> à </span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Tuesday.end_time_afternoon" name="end_time_afternoon_2">
-               			</div>
+                             <div class="row"><span class="col-xs-3 day">Mercredi({{modalDisplay[2]}}): </span></div>
+                             <div class="row">
+                                <span class="col-xs-4">Matin: De</span>
+                                <input class="col-xs-3" type="time" ng-model="day.wednesday.begin_time_morning" ng-required="required" name="begin_time_morning_3">
+                                <span class="col-xs-2"> à </span>
+                                <input class="col-xs-3" type="time" ng-model="day.wednesday.end_time_morning" ng-required="required" name="end_time_morning_3">
+                             </div>
 
-               			<div class="row"><span class="col-xs-3 day">Mercredi: </span></div>
-               			<div class="row">
-               				<span class="col-xs-4">Matin: De</span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Wednesday.begin_time_morning" name="begin_time_morning_3">
-               				<span class="col-xs-2"> à </span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Wednesday.end_time_morning" name="end_time_morning_3">
-               			</div>
+                             <div class="row">
+                                <span class="col-xs-4">Aprem: De</span>
+                                <input class="col-xs-3" type="time" ng-model="day.wednesday.begin_time_afternoon" ng-required="required" name="begin_time_afternoon_3">
+                                <span class="col-xs-2"> à </span>
+                                <input class="col-xs-3" type="time" ng-model="day.wednesday.end_time_afternoon" ng-required="required" name="end_time_afternoon_3">
+                             </div>
 
-               			<div class="row">
-               				<span class="col-xs-4">Aprem: De</span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Wednesday.begin_time_afternoon" name="begin_time_afternoon_3">
-               				<span class="col-xs-2"> à </span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Wednesday.end_time_afternoon" name="end_time_afternoon_3">
-               			</div>
+                             <div class="row"><span class="col-xs-3 day">Jeudi({{modalDisplay[3]}}): </span></div>
+                             <div class="row">
+                                <span class="col-xs-4">Matin: De</span>
+                                <input class="col-xs-3" type="time" ng-model="day.thursday.begin_time_morning" ng-required="required" name="begin_time_morning_4">
+                                <span class="col-xs-2"> à </span>
+                                <input class="col-xs-3" type="time" ng-model="day.thursday.end_time_morning" ng-required="required" name="end_time_morning_4">
+                             </div>
 
-               			<div class="row"><span class="col-xs-3 day">Jeudi: </span></div>
-               			<div class="row">
-               				<span class="col-xs-4">Matin: De</span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Thursday.begin_time_morning" name="begin_time_morning_4">
-               				<span class="col-xs-2"> à </span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Thursday.end_time_morning" name="end_time_morning_4">
-               			</div>
+                             <div class="row">
+                                <span class="col-xs-4">Aprem: De</span>
+                                <input class="col-xs-3" type="time" ng-model="day.thursday.begin_time_afternoon" ng-required="required" name="begin_time_afternoon_4">
+                                <span class="col-xs-2"> à </span>
+                                <input class="col-xs-3" type="time" ng-model="day.thursday.end_time_afternoon" ng-required="required" name="end_time_afternoon_4">
+                             </div>
 
-               			<div class="row">
-               				<span class="col-xs-4">Aprem: De</span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Thursday.begin_time_afternoon" name="begin_time_afternoon_4">
-               				<span class="col-xs-2"> à </span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Thursday.end_time_afternoon" name="end_time_afternoon_4">
-               			</div>
+                             <div class="row"><span class="col-xs-3 day">Vendredi({{modalDisplay[4]}}): </span></div>
+                             <div class="row">
+                                <span class="col-xs-4">Matin: De</span>
+                                <input class="col-xs-3" type="time" ng-model="day.friday.begin_time_morning" ng-required="required" name="begin_time_morning_5">
+                                <span class="col-xs-2"> à </span>
+                                <input class="col-xs-3" type="time" ng-model="day.friday.end_time_morning" ng-required="required" name="end_time_morning_5">
+                             </div>
 
-               			<div class="row"><span class="col-xs-3 day">Vendredi: </span></div>
-               			<div class="row">
-               				<span class="col-xs-4">Matin: De</span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Friday.begin_time_morning" name="begin_time_morning_5">
-               				<span class="col-xs-2"> à </span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Friday.end_time_morning" name="end_time_morning_5">
-               			</div>
+                             <div class="row">
+                                <span class="col-xs-4">Aprem: De</span>
+                                <input class="col-xs-3" type="time" ng-model="day.friday.begin_time_afternoon" ng-required="required" name="begin_time_afternoon_5">
+                                <span class="col-xs-2"> à </span>
+                                <input class="col-xs-3" type="time" ng-model="day.friday.end_time_afternoon" ng-required="required" name="end_time_afternoon_5">
+                             </div>
 
-               			<div class="row">
-               				<span class="col-xs-4">Aprem: De</span>
-               				<input class="col-xs-3" type="time" ng-modal="Day.Friday.begin_time_afternoon" name="begin_time_afternoon_5">
-               				<span class="col-xs-2"> à </span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Friday.end_time_afternoon" name="end_time_afternoon_5">
-               			</div>
+                             <div class="row"><span class="col-xs-3 day">Samedi({{modalDisplay[5]}}): </span></div>
+                             <div class="row">
+                                <span class="col-xs-4">Matin: De</span>
+                                <input class="col-xs-3" type="time" ng-model="day.saturday.begin_time_morning" ng-required="required" name="begin_time_morning_6">
+                                <span class="col-xs-2"> à </span>
+                                <input class="col-xs-3" type="time" ng-model="day.saturday.end_time_morning" ng-required="required" name="end_time_morning_6">
+                             </div>
+                        </form>
+                    </div>
+                </center>
+            </modal-body>
+            <modal-footer>
+                <button class="btn btn-success btn-cons ladda-button" data-style='expand-left' ng-click="addWeek(1,dayForm)" style="margin-top: 10px;">Ajouter</button>
+            </modal-footer>
+        </div>
+    </modal>
+ 
+    <modal visible="showModalTemplate">
+        <modal-header title="Template"></modal-header>
+        <modal-body>
+            <h4>Selectionne ta template</h4>
+            <select name="selectTemplate" required="true">
+                <option ng-repeat="template in templates" value="volvo">{{template.name}}</option>
+            </select>
+        </modal-body>
+        <modal-footer>
+            <button class="btn btn-success btn-large btn-cons" onclick="">Ajouter</button>
+        </modal-footer>
+    </modal>
 
-               			<div class="row"><span class="col-xs-3 day">Samedi: </span></div>
-               			<div class="row">
-               				<span class="col-xs-4">Matin: De</span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Saturday.begin_time_morning" name="begin_time_morning_6">
-               				<span class="col-xs-2"> à </span>
-               				<input class="col-xs-3" type="time" ng-model="Day.Saturday.end_time_morning" name="end_time_morning_6">
-               			</div>
-
-               		</div>
-               		<button class="btn btn-success btn-cons" ng-click="AddWeek(Day)" style="margin-top: 10px;">Ajouter</button>
-               	</center>
-           	</div>
-       	</div>
-
-		<div class="modal modal-content" id="ChooseTemplate-modal" style="overflow:visible; position:fixed; top:15%; left:10%; right:10%; bottom:50%;">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Fermer</span></button>
-                <h4 class="modal-title">Template</h4>
-            </div>
-         	<div class="modal-body" style="height: inherit; overflow:visible;"><center>
-				<h4>Selectionne ta template</h4>
-				<select name="selectTemplate" required="true">
-				  	<option ng-repeat="template in templates" value="volvo">{{template.name}}</option>
-				</select>
-               	<button class="btn btn-success btn-large btn-cons" onclick="">Ajouter</button>
-           	</center></div>
-       	</div>
-
-       	<!-- END MODALS -->
-
-		<div class="content"><center>
+	<div class="content">
+        <center>
 			<!-- BEGIN PAGE TITLE -->
 			<div class="page-title">	
 				<h3>Gérer ma semaine</h3>		
 			</div>
 			<!-- END PAGE TITLE -->
 			<!-- BEGIN PlACE PAGE CONTENT HERE -->
-			
-			<div class="well">
-				<h4>Selectionne ta semaine</h4>
-				<select autofocus="true" name="selectWeek"  id="selectWeek" required="true">
-				  <option ng-repeat="week in weeks" ng-model="selectWeek"  value="{{week.number}}" ng-selected="currentWeekPlusOne==week.number">Semaine {{week.number}} ({{week.firstday}} - {{week.lastday}})</option>
-				</select>
-			</div>
+            <div class="well">
+                <h4>Selectionne ta semaine</h4>
+                <ui-select name='week' ng-model='week' ng-required='true' theme='bootstrap' ng-change="setScope(week)">
+                    <ui-select-match placeholder='Sélectionner une semaine'>
+                        <span> Semaine {{week.number}} ({{week.firstday}} - {{week.lastday}})</span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="week in weeks | filter: $select.search">
+                       <span>Semaine {{week.number}} ({{week.firstday}} - {{week.lastday}})</span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
 
 			<div class="well well-small">
 				<h4>Selectionne le mode de remplissage</h4>
 
-				<button class="btn btn-primary btn-cons" data-toggle="modal" data-target="#AddWeek-modal" type="button" style="height: 100px;">
+				<button class="btn btn-primary btn-cons" ng-click="showModalWeek = true" type="button" style="height: 100px;">
 					Nouvelle semaine
 				</button>
 
-				<button class="btn btn-primary btn-cons" data-toggle="modal" data-target="#ChooseTemplate-modal" type="button" style="height: 100px;">
+				<button class="btn btn-primary btn-cons" ng-click="showModalTemplate = true" type="button" style="height: 100px;">
 					Choisir template
 				</button>
-
+                <button class="btn btn-primary btn-cons" ng-click="testSweetAlert()" type="button" style="height: 100px;">Test SweetAlert</button>
 			</div>
-
 			<!-- END PLACE PAGE CONTENT HERE -->
-		</div>
-	</center></div>
-	<!-- END PAGE CONTAINER -->
-</div>
-<!-- END CONTENT --> 
+        </center>
+    </div>
 </div>
 
 <style type="text/css">

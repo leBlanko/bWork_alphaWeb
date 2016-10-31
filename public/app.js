@@ -1,4 +1,4 @@
-angular.module('bWork_alphaWeb', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.router', 'satellizer', 'ngCookies', 'oitozero.ngSweetAlert'])
+angular.module('bWork_alphaWeb', ['ngResource', 'ngMessages', 'ngAnimate', 'toastr', 'ui.router', 'satellizer', 'ngCookies', 'oitozero.ngSweetAlert', 'ui.select', 'angularMoment'])
   .config(function($stateProvider, $urlRouterProvider, $authProvider, $httpProvider) {
 
     $stateProvider
@@ -25,6 +25,11 @@ angular.module('bWork_alphaWeb', ['ngResource', 'ngMessages', 'ngAnimate', 'toas
         /*resolve: {
           loginRequired: loginRequired
         }*/
+      })
+      .state('addSup', {
+        url: '/addSup',
+        controller: 'AddSupCtrl',
+        templateUrl: 'views/addSup.html'
       })
       .state('login', {
         url: '/login',
