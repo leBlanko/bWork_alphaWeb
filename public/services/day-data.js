@@ -41,6 +41,22 @@ angular.module('bWork_alphaWeb')
                     return deferred.promise;
                 };
 
+                this.getDayByDayAndMonthAndYear = function(day, month, year) {
+                    var pomise = $http.get('/day/' + day + '/month/' + month + '/year/' + year);
+                    var deferred = $q.defer();
+
+                    promise.then(
+                        function(data) {
+                            deferred.resolve(data);
+                        },
+                        function() {
+                            deferred.reject();
+                        }
+                    );
+
+                    return deferred.promise;
+                }
+
                 this.create = function(day) {
                     var promise = $http.post('/day/', day);
                     var deferred = $q.defer();

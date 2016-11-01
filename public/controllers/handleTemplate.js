@@ -11,5 +11,4 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 
 
 
-
 }]);

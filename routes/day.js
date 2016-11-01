@@ -11,6 +11,9 @@ module.exports = {
 			day.getDayById(req.params.id, res);
 		})
 
+		app.get('/day/:day/month/:month/year/:year', function(req, res) {
+			day.getDayByDayAndMonthAndYear(req.params.day, req.params.month, req.params.year);
+		})
 		app.post('/day/', function(req, res) {
 			day.create(req.body, res);
 		});

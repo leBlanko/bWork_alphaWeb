@@ -284,7 +284,7 @@ $(document).ready(function() {
         }
 
         if (sidebar.height() > content.height()) {
-            content.css("min-height", sidebar.height() + 120);
+            content.css("min-height", sidebar.height() + 500);
         } else {
             content.css("min-height", content.attr("data-height"));
         }
@@ -316,6 +316,17 @@ $(document).ready(function() {
         $('#main-menu').removeClass('mini');
         $('.page-content').removeClass('condensed');
         rebuildSider();
+
+        $("#handleWeek").click(function() {
+            $.sidr('close', 'main-menu');
+        });
+        $("#handleTemplate").click(function() {
+            $.sidr('close', 'main-menu');
+        });
+        $("#addSup").click(function() {
+            $.sidr('close', 'main-menu');
+        });
+
     });
 
     $(window).bind('enterBreakpoint480', function() {
@@ -342,7 +353,6 @@ $(document).ready(function() {
 
     });
 
-
     $(window).bind('enterBreakpoint1024', function() {
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             var elem = jQuery('.page-sidebar ul');
@@ -358,7 +368,7 @@ $(document).ready(function() {
         $('#portrait-chat-toggler').hide();
         $('#header_inbox_bar').show();
         closeAndRestSider();
-    });
+    })
 
     $(window).bind('exitBreakpoint480', function() {
         $('#main-menu-toggle-wrapper').hide();
@@ -373,6 +383,7 @@ $(document).ready(function() {
         $('#header_inbox_bar').show();
         closeAndRestSider();
     });
+
 
     //***********************************END Layout Readjust *****************************	
 
@@ -533,6 +544,7 @@ $(document).ready(function() {
 
     $(window).resize(function() {
         calculateHeight();
+
     });
 
     $(window).scroll(function() {

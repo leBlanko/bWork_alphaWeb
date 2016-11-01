@@ -13,12 +13,11 @@ function Day(minNormal, minSup, minRecup, day, month, year, beginMorning, endMor
 	this.endAfternoon = endAfternoon;
 }
 
-function Day(beginMorning, endMorning, beginAfternoon, endAfternoon)
-{
+function Day(beginMorning, endMorning, beginAfternoon, endAfternoon) {
 	this.minNormal = beginMorning;
 	this.minSup = 0;
 	this.minRecup = 0;
-	this.day=11; //A CHANGER , pour les test
+	this.day = 11; //A CHANGER , pour les test
 	this.month = 12; //A CHANGER , pour les test
 	this.year = 2016; //A CHANGER , pour les test
 	this.beginMorning = beginMorning;
@@ -76,6 +75,14 @@ Day.prototype.getDayById = function(id, res) {
 			res.send(result);
 		});
 	});
+}
+Day.prototype.getDayByDayAndMonthAndYear = function(day, month, year) {
+	connection.acquire(function(err, con) {
+		con.query('select * from day where day = ? and month = ? and year = ?', [day, month, year], function(err, result) {
+			con.release();
+			res.send(result);
+		})
+	})
 }
 
 Day.prototype.create = function(day, res) {

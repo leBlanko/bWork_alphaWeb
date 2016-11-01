@@ -1200,7 +1200,7 @@ body.bottom-header .page-content .content {
   background-color: #e5e9ec;
   overflow: auto;
   position: relative;
-  min-height: 911px;
+  height: 700px;
 }
 .page-content.condensed {
   margin-left: 50px;
