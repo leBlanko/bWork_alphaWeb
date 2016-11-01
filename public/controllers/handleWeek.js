@@ -1,5 +1,5 @@
 var app = angular.module('bWork_alphaWeb');
-app.run();
+
 app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 'toastr', '$auth', '$location', 'templateData', 'dayData', 'SweetAlert', function($scope, $cookieStore, $window, $http, toastr, $auth, $location, templateData, dayData, SweetAlert) {
 
 	$scope.templates = [];
@@ -18,6 +18,7 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 	}
 
 	templateData.getTemplates().then(function(res) {
+
 		$scope.templates = res.data;
 	});
 
@@ -30,14 +31,19 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 		l.start();
 
 		var date = new Date(dateModal.substring(6, 10), dateModal.substring(3, 5), dateModal.substring(0, 2));
+		var beginMor = parseInt(begin_time_morning.getHours()) * 60 + parseInt(begin_time_morning.getMinutes());
+		var endMor = parseInt(end_time_morning.getHours()) * 60 + parseInt(end_time_morning.getMinutes())
+		var beginAft = parseInt(begin_time_afternoon.getHours()) * 60 + parseInt(begin_time_afternoon.getMinutes());
+		var endAft = parseInt(end_time_afternoon.getHours()) * 60 + parseInt(end_time_afternoon.getMinutes());
 		var day = {
+			minNormal: (endMor - beginMor) + (endAft - beginAft),
 			day: date.getDate(),
 			month: angular.copy(date.getMonth()),
 			year: date.getFullYear(),
-			beginMorning: parseInt(begin_time_morning.getHours()) * 60 + parseInt(begin_time_morning.getMinutes()),
-			endMorning: parseInt(end_time_morning.getHours()) * 60 + parseInt(end_time_morning.getMinutes()),
-			beginAfternoon: parseInt(begin_time_afternoon.getHours()) * 60 + parseInt(begin_time_afternoon.getMinutes()),
-			endAfternoon: parseInt(end_time_afternoon.getHours()) * 60 + parseInt(end_time_afternoon.getMinutes()),
+			beginMorning: beginMor,
+			endMorning: endMor,
+			beginAfternoon: beginAft,
+			endAfternoon: endAft,
 		}
 
 		dayData.create(day).then(function(res) {
@@ -48,6 +54,7 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 			// Ah si, j'ai fait des directives modal et calendar, et dans le dossier templates, c'est le corps en html de la midal
 			// et du calendar
 			l.stop();
+			toastr.success("Le jour " + dateModal + " a été ajouté dans votre nouvelle semaine");
 
 		});
 	}
@@ -58,20 +65,48 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 		//$scope.hide(m);
 		if ($scope.day) {
 			var l = Ladda.create(angular.element('.ladda-button').get()[0]);
-			if ($scope.day.monday != undefined && $scope.day.tuesday != undefined && $scope.day.wednesday != undefined && $scope.day.thursday != undefined && $scope.day.friday != undefined && $scope.day.saturday != undefined) {
+			if ($scope.day.monday != undefined) {
 				add(l, $scope.modalDisplay[0], $scope.day.monday.begin_time_morning, $scope.day.monday.end_time_morning, $scope.day.monday.begin_time_afternoon, $scope.day.monday.end_time_afternoon);
-				add(l, $scope.modalDisplay[1], $scope.day.tuesday.begin_time_morning, $scope.day.tuesday.end_time_morning, $scope.day.tuesday.begin_time_afternoon, $scope.day.tuesday.end_time_afternoon);
-				add(l, $scope.modalDisplay[2], $scope.day.wednesday.begin_time_morning, $scope.day.wednesday.end_time_morning, $scope.day.wednesday.begin_time_afternoon, $scope.day.wednesday.end_time_afternoon);
-				add(l, $scope.modalDisplay[3], $scope.day.thursday.begin_time_morning, $scope.day.thursday.end_time_morning, $scope.day.thursday.begin_time_afternoon, $scope.day.thursday.end_time_afternoon);
-				add(l, $scope.modalDisplay[4], $scope.day.friday.begin_time_morning, $scope.day.friday.end_time_morning, $scope.day.friday.begin_time_afternoon, $scope.day.friday.end_time_afternoon);
-				add(l, $scope.modalDisplay[5], $scope.day.saturday.begin_time_morning, $scope.day.saturday.end_time_morning, $scope.day.saturday.begin_time_afternoon, $scope.day.saturday.end_time_afternoon);
-				toastr.success("La semaine a été ajoutée.");
+			}
+			else {
+				add(l, $scope.modalDisplay[0], 0, 0, 0, 0);
+			}
 
+			if ($scope.day.tuesday != undefined) {
+				add(l, $scope.modalDisplay[1], $scope.day.tuesday.begin_time_morning, $scope.day.tuesday.end_time_morning, $scope.day.tuesday.begin_time_afternoon, $scope.day.tuesday.end_time_afternoon);
 			}
-			else
-			{
-				toastr.success("Veuillez remplir tous les champs.");
+			else {
+				add(l, $scope.modalDisplay[1], 0, 0, 0, 0);
 			}
+
+			if ($scope.day.wednesday != undefined) {
+				add(l, $scope.modalDisplay[2], $scope.day.wednesday.begin_time_morning, $scope.day.wednesday.end_time_morning, $scope.day.wednesday.begin_time_afternoon, $scope.day.wednesday.end_time_afternoon);
+			}
+			else {
+				add(l, $scope.modalDisplay[2], 0, 0, 0, 0);
+			}
+
+			if ($scope.day.thursday != undefined)  {
+				add(l, $scope.modalDisplay[3], $scope.day.thursday.begin_time_morning, $scope.day.thursday.end_time_morning, $scope.day.thursday.begin_time_afternoon, $scope.day.thursday.end_time_afternoon);
+			}
+			else {
+				add(l, $scope.modalDisplay[3], 0, 0, 0, 0);
+			}
+
+			if ($scope.day.friday != undefined) {
+				add(l, $scope.modalDisplay[4], $scope.day.friday.begin_time_morning, $scope.day.friday.end_time_morning, $scope.day.friday.begin_time_afternoon, $scope.day.friday.end_time_afternoon);
+			}
+			else {
+				add(l, $scope.modalDisplay[4], 0, 0, 0, 0);
+			}
+
+			if ($scope.day.saturday != undefined) {
+				add(l, $scope.modalDisplay[5], $scope.day.saturday.begin_time_morning, $scope.day.saturday.end_time_morning, $scope.day.saturday.begin_time_afternoon, $scope.day.saturday.end_time_afternoon);
+			}
+			else {
+				add(l, $scope.modalDisplay[5], 0, 0, 0, 0);
+			}
+
 		}
 	};
 
