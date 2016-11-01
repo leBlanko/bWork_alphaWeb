@@ -49,7 +49,6 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 			// Ah si, j'ai fait des directives modal et calendar, et dans le dossier templates, c'est le corps en html de la midal
 			// et du calendar
 			l.stop();
-			toastr.success("Le jour " + dateModal + " a été ajouté dans votre nouvelle semaine");
 
 		});
 	}
@@ -60,23 +59,19 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 		//$scope.hide(m);
 		if ($scope.day) {
 			var l = Ladda.create(angular.element('.ladda-button').get()[0]);
-			if ($scope.day.monday != undefined) {
+			if ($scope.day.monday != undefined && $scope.day.tuesday != undefined && $scope.day.wednesday != undefined && $scope.day.thursday != undefined && $scope.day.friday != undefined && $scope.day.saturday != undefined) {
 				add(l, $scope.modalDisplay[0], $scope.day.monday.begin_time_morning, $scope.day.monday.end_time_morning, $scope.day.monday.begin_time_afternoon, $scope.day.monday.end_time_afternoon);
-			}
-			if ($scope.day.tuesday != undefined) {
 				add(l, $scope.modalDisplay[1], $scope.day.tuesday.begin_time_morning, $scope.day.tuesday.end_time_morning, $scope.day.tuesday.begin_time_afternoon, $scope.day.tuesday.end_time_afternoon);
-			}
-			if ($scope.day.wednesday != undefined) {
 				add(l, $scope.modalDisplay[2], $scope.day.wednesday.begin_time_morning, $scope.day.wednesday.end_time_morning, $scope.day.wednesday.begin_time_afternoon, $scope.day.wednesday.end_time_afternoon);
-			}
-			if ($scope.day.thursday != undefined)  {
 				add(l, $scope.modalDisplay[3], $scope.day.thursday.begin_time_morning, $scope.day.thursday.end_time_morning, $scope.day.thursday.begin_time_afternoon, $scope.day.thursday.end_time_afternoon);
-			}
-			if ($scope.day.friday != undefined) {
 				add(l, $scope.modalDisplay[4], $scope.day.friday.begin_time_morning, $scope.day.friday.end_time_morning, $scope.day.friday.begin_time_afternoon, $scope.day.friday.end_time_afternoon);
-			}
-			if ($scope.day.saturday != undefined) {
 				add(l, $scope.modalDisplay[5], $scope.day.saturday.begin_time_morning, $scope.day.saturday.end_time_morning, $scope.day.saturday.begin_time_afternoon, $scope.day.saturday.end_time_afternoon);
+				toastr.success("La semaine a été ajoutée.");
+
+			}
+			else
+			{
+				toastr.success("Veuillez remplir tous les champs.");
 			}
 		}
 	};
