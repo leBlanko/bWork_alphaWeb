@@ -2,6 +2,7 @@
 <div class="page-content"> 
     <modal visible="showModalWeek">
         <div>
+        <!--et du coup tu appeles juste modal-header, modabl body etc et pour calendar c'est pareil -->
             <modal-header title="Horaires de ta semaine"></modal-header>
             <modal-body>
                 <center>
@@ -142,25 +143,8 @@
 				<button class="btn btn-primary btn-cons" ng-click="showModalTemplate = true" type="button" style="height: 100px;">
 					Choisir template
 				</button>
-                <button class="btn btn-primary btn-cons" ng-click="testSweetAlert()" type="button" style="height: 100px;">Test SweetAlert</button>
 			</div>
 			<!-- END PLACE PAGE CONTENT HERE -->
         </center>
     </div>
 </div>
-
-<style type="text/css">
-	
-	.day
-	{
-		font-size: 18px;
-		text-transform: bold;
-		color: black;
-	}
-	#newWeek
-	{
-		height: 200px;
-		overflow-y: scroll;
-		overflow-x: hidden;
-	}
-</style>

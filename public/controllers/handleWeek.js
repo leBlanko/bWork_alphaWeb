@@ -27,6 +27,7 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 	}
 
 	var add = function(l, dateModal, begin_time_morning, end_time_morning, begin_time_afternoon, end_time_afternoon) {
+		//l.start() sert à lancer le spinner au click du bouton , ej sais pas si tu l'as vu , euh non
 		l.start();
 
 		var date = new Date(dateModal.substring(6, 10), dateModal.substring(3, 5), dateModal.substring(0, 2));
@@ -43,6 +44,10 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 		dayData.create(day).then(function(res) {
 
 		}).finally(function() {
+			//comomeu eple  ^^^^, et du coup j'arrête le spinner et j'affiche le toaster en haut à droite,, impec :)
+			//si tu as besoin tu me dis
+			// Ah si, j'ai fait des directives modal et calendar, et dans le dossier templates, c'est le corps en html de la midal
+			// et du calendar
 			l.stop();
 			toastr.success("Le jour " + dateModal + " a été ajouté dans votre nouvelle semaine");
 
@@ -50,6 +55,8 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 	}
 	$scope.addWeek = function(m) {
 
+		//ici, au lieu de faire 6 if tu en fais qu'un avec des && entre les deux et ça sera googd. Tu peux
+		//même rajouter if il y a rien du tout tu affiches un message d'erreur, impec c ce que il faut )
 		//$scope.hide(m);
 		if ($scope.day) {
 			var l = Ladda.create(angular.element('.ladda-button').get()[0]);
@@ -207,13 +214,6 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 		}
 
 		$scope.weeks.push(week);
-	}
-
-
-	$scope.testSweetAlert = function() {
-		//A injecter en haut dans app.controller() SweetAlert
-		console.log('ici');
-		SweetAlert.swal("Good job!", "You clicked the button!", "success");
 	}
 
 }]);
