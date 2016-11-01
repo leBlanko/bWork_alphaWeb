@@ -1,5 +1,5 @@
 var app = angular.module('bWork_alphaWeb');
-
+app.run();
 app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 'toastr', '$auth', '$location', 'templateData', 'dayData', 'SweetAlert', function($scope, $cookieStore, $window, $http, toastr, $auth, $location, templateData, dayData, SweetAlert) {
 
 	$scope.templates = [];
@@ -18,7 +18,6 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 	}
 
 	templateData.getTemplates().then(function(res) {
-
 		$scope.templates = res.data;
 	});
 
