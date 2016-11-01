@@ -10,8 +10,62 @@
 			<!-- END PAGE TITLE -->
 			<!-- BEGIN PlACE PAGE CONTENT HERE -->
                 <h4>Selectionne ton jour</h4>
-                <calendar selected="day"></calendar>
-                <span> Jour sélectionné : {{day.format('dddd, MMMM Do YYYY')}}</span>
+
+                <div class="row">
+	                <div class="col-xs-offset-1 col-xs-10 col-sm-offset-4 col-sm-4">
+	                	<calendar selected="day"></calendar>
+	                </div>
+                </div>
+
+                <div class="row">
+	                <div class="col-xs-offset-1 col-xs-10 col-sm-offset-4 col-sm-4">
+	                	<div class="infos_day">
+	                		<div class="row">
+	                			<span> Jour sélectionné : {{day.format('dddd, MMMM Do YYYY')}}</span>
+	                		</div>
+	                		<div class="row">
+	                			<span>Horaires: </span>
+	                		</div>
+	                	</div>
+	                </div>
+                </div>
+
+               	<div class="row">
+					<button class="btn btn-success" ng-click="showModalDay = true" style="margin-top: 5px;">Ajouter heure supp'</button>
+				</div>
+
+				<modal visible="showModalDay">
+	        	<div>
+				<modal-header title="Horaire du jour"></modal-header>
+		            <modal-body>
+		                <center>
+		                    <div id="newDay">
+		                        <form name='dayForm', novalidate>
+		                            <div class="row"><span class="col-xs-3 day" ng-model="day.monday.day"></span></div>
+		                            <div class="row">
+		                                <span class="day col-xs-4">Matin: De</span>
+		                                <input class="col-xs-3" type="time" ng-model="day.begin_time_morning" ng-required="required" name="begin_time_morning">
+		                                <span class="day col-xs-2"> à </span>
+		                                <input class="col-xs-3" type="time" ng-model="day.end_time_morning" ng-required="required" name="end_time_morning">
+		                             </div>
+		                             <div class="row">
+		                                <span class="day col-xs-4">Aprem: De</span>
+		                                <input class="col-xs-3" type="time" ng-model="day.begin_time_afternoon" ng-required="required" name="begin_time_afternoon">
+		                                <span class="day col-xs-2"> à </span>
+		                                <input class="col-xs-3" type="time" ng-model="day.end_time_afternoon" ng-required="required" name="end_time_afternoon">
+		                             </div>
+		                        </form>
+		                    </div>
+		                </center>
+		            </modal-body>
+	            <modal-footer>
+	                <button class="btn btn-success btn-cons ladda-button" data-style='expand-left' ng-click="" style="margin-top: 10px;">Ajouter</button>
+	            </modal-footer>
+	        </div>
+	    </modal>
+
+                
+                
 			<!-- END PLACE PAGE CONTENT HERE -->
         </center>
     </div>

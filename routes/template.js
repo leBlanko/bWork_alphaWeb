@@ -16,6 +16,10 @@ module.exports = {
 			template.create(req.body, res);
 		});
 
+		app.delete('/template/:id', function(req, res) {
+			template.delete(req.params.id, res);
+		});
+
 		app.put('/template/:name/:id', function(req, res) {
 			template.update(req.params.name, req.params.id, res);
 		});

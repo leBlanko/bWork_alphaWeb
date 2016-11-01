@@ -7664,3 +7664,30 @@ input[type="checkbox"] {
   font-weight: 300;
   text-indent: -2px;
 }
+
+  .day
+  {
+    font-size: 18px;
+    text-transform: bold;
+    color: black;
+  }
+  #newWeek
+  {
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  #newDay
+  {
+    height: 70px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .infos_day
+  {
+    background-color: white;
+    border: 2px solid blue;
+    border-radius: 5px;
+    height: 200px;
+  }
