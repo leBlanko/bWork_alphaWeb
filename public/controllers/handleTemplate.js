@@ -1,7 +1,7 @@
 var app = angular.module('bWork_alphaWeb');
 app.run();
 
-app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 'toastr', '$auth', '$location', 'templateData', 'SweetAlert', function($scope, $cookieStore, $window, $http, toastr, $auth, $location, templateData, SweetAlert) {
+app.controller('HandleTemplateCtrl', ['$scope', '$cookieStore', '$window', '$http', 'toastr', '$auth', '$location', 'templateData', 'SweetAlert', function($scope, $cookieStore, $window, $http, toastr, $auth, $location, templateData, SweetAlert) {
 
 
 	templateData.getTemplates().then(function(res) {
