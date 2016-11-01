@@ -31,6 +31,11 @@ angular.module('bWork_alphaWeb', ['ngResource', 'ngMessages', 'ngAnimate', 'toas
         controller: 'AddSupCtrl',
         templateUrl: 'views/addSup.html'
       })
+      .state('editWeek', {
+        url: '/editWeek',
+        controller: 'EditWeekCtrl',
+        templateUrl: 'views/editWeek.html'
+      })
       .state('login', {
         url: '/login',
         templateUrl: 'views/login.html',

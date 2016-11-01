@@ -17,5 +17,5 @@ app.controller('HomeCtrl', ['$scope', '$cookieStore', '$window', '$http', 'toast
 
     }
 
-    $scope.user = $cookieStore.get('user').user;
+    //$scope.user = $cookieStore.get('user').user;
 }]);
