@@ -11,15 +11,16 @@ module.exports = {
 			day.getDayById(req.params.id, res);
 		})
 
-		app.get('/day/:day/month/:month/year/:year', function(req, res) {
-			day.getDayByDayAndMonthAndYear(req.params.day, req.params.month, req.params.year);
+		app.get('/day/:day/month/:month/year/:year/', function(req, res) {
+			day.getDayByDayAndMonthAndYear(req.params.day, req.params.month, req.params.year, res);
 		})
 		app.post('/day/', function(req, res) {
 			day.create(req.body, res);
 		});
 
-		app.put('/day/:day/:id', function(req, res) {
-			day.update(req.params.day, req.params.id, res);
+		app.put('/day/:minSup/id/:id', function(req, res) {
+			console.log(req.params.minSup);
+			day.update(req.params.minSup, req.params.id, res);
 		});
 	}
 };

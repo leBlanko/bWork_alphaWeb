@@ -13,7 +13,7 @@
 
                 <div class="row">
 	                <div class="col-xs-offset-1 col-xs-10 col-sm-offset-4 col-sm-4">
-	                	<calendar selected="day"></calendar>
+	                	<calendar selected="day" schedule="schedule" id="id"></calendar>
 	                </div>
                 </div>
 
@@ -21,10 +21,24 @@
 	                <div class="col-xs-offset-1 col-xs-10 col-sm-offset-4 col-sm-4">
 	                	<div class="infos_day">
 	                		<div class="row">
-	                			<span> Jour sélectionné : {{day.format('dddd, MMMM Do YYYY')}}</span>
+	                			<span > Jour sélectionné : {{day.format('dddd, MMMM Do YYYY')}}</span>
 	                		</div>
 	                		<div class="row">
 	                			<span>Horaires: </span>
+	                			<div class="row">
+	                				<span>Matin : {{schedule.beginMorning}} - {{schedule.endMorning}}</span>
+	                			</div>
+	                			<div class="row">
+	                				<span>Après-midi : {{schedule.beginAfternoon}} - {{schedule.endAfternoon}}</span>
+	                			</div>
+	                		<div class="row">
+	                			<span>Heure(s) travaillée(s) : {{schedule.minNormal}}</span>
+	                		</div>
+	                		<div class="row">
+	                			<span> Heure(s) récupérée(s) : {{schedule.minRecup}}</span>
+	                		</div>
+	                		<div class="row">
+	                			<span>Heure(s) supérieure(s) : {{schedule.minSup}}</span>
 	                		</div>
 	                	</div>
 	                </div>
@@ -41,25 +55,17 @@
 		                <center>
 		                    <div id="newDay">
 		                        <form name='dayForm', novalidate>
-		                            <div class="row"><span class="col-xs-3 day" ng-model="day.monday.day"></span></div>
+		                            <div class="row"><span class="col-xs-3 day" ng-model="day.sup"></span></div>
 		                            <div class="row">
-		                                <span class="day col-xs-4">Matin: De</span>
-		                                <input class="col-xs-3" type="time" ng-model="day.begin_time_morning" ng-required="required" name="begin_time_morning">
-		                                <span class="day col-xs-2"> à </span>
-		                                <input class="col-xs-3" type="time" ng-model="day.end_time_morning" ng-required="required" name="end_time_morning">
-		                             </div>
-		                             <div class="row">
-		                                <span class="day col-xs-4">Aprem: De</span>
-		                                <input class="col-xs-3" type="time" ng-model="day.begin_time_afternoon" ng-required="required" name="begin_time_afternoon">
-		                                <span class="day col-xs-2"> à </span>
-		                                <input class="col-xs-3" type="time" ng-model="day.end_time_afternoon" ng-required="required" name="end_time_afternoon">
+		                                <span class="day col-xs-4">Heure(s) sup'</span>
+		                                <input class="col-xs-3" type="time" ng-model="day.sup" ng-required="required" name="sup">
 		                             </div>
 		                        </form>
 		                    </div>
 		                </center>
 		            </modal-body>
 	            <modal-footer>
-	                <button class="btn btn-success btn-cons ladda-button" data-style='expand-left' ng-click="" style="margin-top: 10px;">Ajouter</button>
+	                <button class="btn btn-success btn-cons ladda-button" data-style='expand-left' ng-click="addSup()" style="margin-top: 10px;">Ajouter</button>
 	            </modal-footer>
 	        </div>
 	    </modal>

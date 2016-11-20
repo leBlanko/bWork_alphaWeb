@@ -1,10 +1,12 @@
 var app = angular.module('bWork_alphaWeb');
-app.directive("calendar", ["moment", function(moment) {
+app.directive("calendar", ["moment", "dayData", function(moment, dayData) {
     return {
         restrict: "E",
         templateUrl: "templates/calendar.html",
         scope: {
-            selected: "="
+            selected: "=",
+            schedule: "=",
+            id: "="
         },
         link: function(scope) {
             scope.selected = _removeTime(scope.selected || moment());
@@ -18,7 +20,38 @@ app.directive("calendar", ["moment", function(moment) {
 
             scope.select = function(day) {
                 scope.selected = day.date;
+                var d = new Date(scope.selected);
+                dayData.getDayByDayAndMonthAndYear(d.getDate(), d.getMonth() + 1, d.getFullYear()).then(function(data) {
+                    scope.schedule = {};
+                    if (data.data.length > 0) {
+                        var res = data.data[0];
+
+                        var schedule = {
+                            beginMorning: convertMinsToHrsMins(res.beginMorning),
+                            endMorning: convertMinsToHrsMins(res.endMorning),
+                            beginAfternoon: convertMinsToHrsMins(res.beginAfternoon),
+                            endAfternoon: convertMinsToHrsMins(res.endAfternoon),
+                            minNormal: convertMinsToHrsMins(res.minNormal),
+                            minRecup: convertMinsToHrsMins(res.minRecup),
+                            minSup: convertMinsToHrsMins(res.minSup),
+                            day: res.day,
+                            month: res.month,
+                            year: res.year,
+                            id: res.id
+                        }
+                        scope.schedule = schedule;
+                        scope.id = schedule.id;
+                    }
+                })
             };
+
+            var convertMinsToHrsMins = function(minutes) {
+                var h = Math.floor(minutes / 60);
+                var m = minutes % 60;
+                h = h < 10 ? '0' + h : h;
+                m = m < 10 ? '0' + m : m;
+                return h + ':' + m;
+            }
 
             scope.next = function() {
                 var next = scope.month.clone();
@@ -41,7 +74,6 @@ app.directive("calendar", ["moment", function(moment) {
     }
 
     function _buildMonth(scope, start, month) {
-        console.log(start, month);
         scope.weeks = [];
         var done = false,
             date = start.clone(),

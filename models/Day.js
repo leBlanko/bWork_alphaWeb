@@ -76,7 +76,7 @@ Day.prototype.getDayById = function(id, res) {
 		});
 	});
 }
-Day.prototype.getDayByDayAndMonthAndYear = function(day, month, year) {
+Day.prototype.getDayByDayAndMonthAndYear = function(day, month, year, res) {
 	connection.acquire(function(err, con) {
 		con.query('select * from day where day = ? and month = ? and year = ?', [day, month, year], function(err, result) {
 			con.release();
@@ -113,6 +113,7 @@ Day.prototype.update = function(day, res) {
 		con.query('update day set ? where id = ?', [day, day.id], function(err, result) {
 			con.release();
 			if (err) {
+				console.log(err);
 				res.send({
 					status: 1,
 					message: 'Day update failed'
