@@ -59,50 +59,74 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 		});
 	}
 	$scope.addWeek = function(m) {
-
-		//ici, au lieu de faire 6 if tu en fais qu'un avec des && entre les deux et ça sera googd. Tu peux
-		//même rajouter if il y a rien du tout tu affiches un message d'erreur, impec c ce que il faut )
-		//$scope.hide(m);
 		if ($scope.day) {
 			var l = Ladda.create(angular.element('.ladda-button').get()[0]);
 			if ($scope.day.monday != undefined) {
-				add(l, $scope.modalDisplay[0], $scope.day.monday.begin_time_morning, $scope.day.monday.end_time_morning, $scope.day.monday.begin_time_afternoon, $scope.day.monday.end_time_afternoon);
+				var beginMorning = ($scope.day.monday.begin_time_morning != undefined) ? $scope.day.monday.begin_time_morning : 0;
+				var endMorning = ($scope.day.monday.end_time_morning != undefined) ? $scope.day.monday.end_time_morning : 0;
+				var beginAfternoon = ($scope.day.monday.begin_time_afternoon != undefined) ? $scope.day.monday.begin_time_afternoon : 0;
+				var endAfternoon = ($scope.day.monday.end_time_afternoon != undefined) ? $scope.day.monday.end_time_afternoon : 0;
+
+				add(l, $scope.modalDisplay[0], beginMorning, endMorning, beginAfternoon, endAfternoon);
 			}
 			else {
 				add(l, $scope.modalDisplay[0], 0, 0, 0, 0);
 			}
 
 			if ($scope.day.tuesday != undefined) {
-				add(l, $scope.modalDisplay[1], $scope.day.tuesday.begin_time_morning, $scope.day.tuesday.end_time_morning, $scope.day.tuesday.begin_time_afternoon, $scope.day.tuesday.end_time_afternoon);
+				var beginMorning = ($scope.day.tuesday.begin_time_morning != undefined) ? $scope.day.tuesday.begin_time_morning : 0;
+				var endMorning = ($scope.day.tuesday.end_time_morning != undefined) ? $scope.day.tuesday.end_time_morning : 0;
+				var beginAfternoon = ($scope.day.tuesday.begin_time_afternoon != undefined) ? $scope.day.tuesday.begin_time_afternoon : 0;
+				var endAfternoon = ($scope.day.tuesday.end_time_afternoon != undefined) ? $scope.day.tuesday.end_time_afternoon : 0;
+
+				add(l, $scope.modalDisplay[0], beginMorning, endMorning, beginAfternoon, endAfternoon);
 			}
 			else {
 				add(l, $scope.modalDisplay[1], 0, 0, 0, 0);
 			}
 
 			if ($scope.day.wednesday != undefined) {
-				add(l, $scope.modalDisplay[2], $scope.day.wednesday.begin_time_morning, $scope.day.wednesday.end_time_morning, $scope.day.wednesday.begin_time_afternoon, $scope.day.wednesday.end_time_afternoon);
-			}
+				var beginMorning = ($scope.day.wednesday.begin_time_morning != undefined) ? $scope.day.wednesday.begin_time_morning : 0;
+				var endMorning = ($scope.day.wednesday.end_time_morning != undefined) ? $scope.day.wednesday.end_time_morning : 0;
+				var beginAfternoon = ($scope.day.wednesday.begin_time_afternoon != undefined) ? $scope.day.wednesday.begin_time_afternoon : 0;
+				var endAfternoon = ($scope.day.wednesday.end_time_afternoon != undefined) ? $scope.day.wednesday.end_time_afternoon : 0;
+
+				add(l, $scope.modalDisplay[0], beginMorning, endMorning, beginAfternoon, endAfternoon);				
+				}
 			else {
 				add(l, $scope.modalDisplay[2], 0, 0, 0, 0);
 			}
 
 			if ($scope.day.thursday != undefined)  {
-				add(l, $scope.modalDisplay[3], $scope.day.thursday.begin_time_morning, $scope.day.thursday.end_time_morning, $scope.day.thursday.begin_time_afternoon, $scope.day.thursday.end_time_afternoon);
-			}
+				var beginMorning = ($scope.day.thursday.begin_time_morning != undefined) ? $scope.day.thursday.begin_time_morning : 0;
+				var endMorning = ($scope.day.thursday.end_time_morning != undefined) ? $scope.day.thursday.end_time_morning : 0;
+				var beginAfternoon = ($scope.day.thursday.begin_time_afternoon != undefined) ? $scope.day.thursday.begin_time_afternoon : 0;
+				var endAfternoon = ($scope.day.thursday.end_time_afternoon != undefined) ? $scope.day.thursday.end_time_afternoon : 0;
+
+				add(l, $scope.modalDisplay[0], beginMorning, endMorning, beginAfternoon, endAfternoon);	
+				}
 			else {
 				add(l, $scope.modalDisplay[3], 0, 0, 0, 0);
 			}
 
 			if ($scope.day.friday != undefined) {
-				add(l, $scope.modalDisplay[4], $scope.day.friday.begin_time_morning, $scope.day.friday.end_time_morning, $scope.day.friday.begin_time_afternoon, $scope.day.friday.end_time_afternoon);
-			}
+				var beginMorning = ($scope.day.friday.begin_time_morning != undefined) ? $scope.day.friday.begin_time_morning : 0;
+				var endMorning = ($scope.day.friday.end_time_morning != undefined) ? $scope.day.friday.end_time_morning : 0;
+				var beginAfternoon = ($scope.day.friday.begin_time_afternoon != undefined) ? $scope.day.friday.begin_time_afternoon : 0;
+				var endAfternoon = ($scope.day.friday.end_time_afternoon != undefined) ? $scope.day.friday.end_time_afternoon : 0;
+
+				add(l, $scope.modalDisplay[0], beginMorning, endMorning, beginAfternoon, endAfternoon);	
+				}
 			else {
 				add(l, $scope.modalDisplay[4], 0, 0, 0, 0);
 			}
 
 			if ($scope.day.saturday != undefined) {
-				add(l, $scope.modalDisplay[5], $scope.day.saturday.begin_time_morning, $scope.day.saturday.end_time_morning, $scope.day.saturday.begin_time_afternoon, $scope.day.saturday.end_time_afternoon);
-			}
+				var beginMorning = ($scope.day.saturday.begin_time_morning != undefined) ? $scope.day.saturday.begin_time_morning : 0;
+				var endMorning = ($scope.day.saturday.end_time_morning != undefined) ? $scope.day.saturday.end_time_morning : 0;
+				
+				add(l, $scope.modalDisplay[0], beginMorning, endMorning, beginAfternoon, endAfternoon);	
+				}
 			else {
 				add(l, $scope.modalDisplay[5], 0, 0, 0, 0);
 			}
