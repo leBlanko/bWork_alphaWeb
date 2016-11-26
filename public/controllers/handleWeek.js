@@ -7,8 +7,11 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 	$scope.currentWeekPlusOne = 0;
 	$scope.showModalWeek = false;
 	$scope.showModalTemplate = false;
-	$scope.day = {};
-
+	$scope.day = {
+		monday : {
+			begin_time_morning : "08:00"
+		}
+	};
 	$scope.hide = function(m) {
 		if (m === 1) {
 			$scope.showModalWeek = false;
