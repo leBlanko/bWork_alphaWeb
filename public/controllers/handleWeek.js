@@ -8,10 +8,9 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 	$scope.showModalWeek = false;
 	$scope.showModalTemplate = false;
 	$scope.day = {
-		monday : {
-			begin_time_morning : "08:00"
-		}
+		monday: {}
 	};
+
 	$scope.hide = function(m) {
 		if (m === 1) {
 			$scope.showModalWeek = false;
@@ -71,8 +70,7 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 				var endAfternoon = ($scope.day.monday.end_time_afternoon != undefined) ? $scope.day.monday.end_time_afternoon : 0;
 
 				add(l, $scope.modalDisplay[0], beginMorning, endMorning, beginAfternoon, endAfternoon);
-			}
-			else {
+			} else {
 				add(l, $scope.modalDisplay[0], 0, 0, 0, 0);
 			}
 
@@ -83,8 +81,7 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 				var endAfternoon = ($scope.day.tuesday.end_time_afternoon != undefined) ? $scope.day.tuesday.end_time_afternoon : 0;
 
 				add(l, $scope.modalDisplay[0], beginMorning, endMorning, beginAfternoon, endAfternoon);
-			}
-			else {
+			} else {
 				add(l, $scope.modalDisplay[1], 0, 0, 0, 0);
 			}
 
@@ -94,9 +91,8 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 				var beginAfternoon = ($scope.day.wednesday.begin_time_afternoon != undefined) ? $scope.day.wednesday.begin_time_afternoon : 0;
 				var endAfternoon = ($scope.day.wednesday.end_time_afternoon != undefined) ? $scope.day.wednesday.end_time_afternoon : 0;
 
-				add(l, $scope.modalDisplay[0], beginMorning, endMorning, beginAfternoon, endAfternoon);				
-				}
-			else {
+				add(l, $scope.modalDisplay[0], beginMorning, endMorning, beginAfternoon, endAfternoon);
+			} else {
 				add(l, $scope.modalDisplay[2], 0, 0, 0, 0);
 			}
 
@@ -106,9 +102,8 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 				var beginAfternoon = ($scope.day.thursday.begin_time_afternoon != undefined) ? $scope.day.thursday.begin_time_afternoon : 0;
 				var endAfternoon = ($scope.day.thursday.end_time_afternoon != undefined) ? $scope.day.thursday.end_time_afternoon : 0;
 
-				add(l, $scope.modalDisplay[0], beginMorning, endMorning, beginAfternoon, endAfternoon);	
-				}
-			else {
+				add(l, $scope.modalDisplay[0], beginMorning, endMorning, beginAfternoon, endAfternoon);
+			} else {
 				add(l, $scope.modalDisplay[3], 0, 0, 0, 0);
 			}
 
@@ -118,19 +113,17 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 				var beginAfternoon = ($scope.day.friday.begin_time_afternoon != undefined) ? $scope.day.friday.begin_time_afternoon : 0;
 				var endAfternoon = ($scope.day.friday.end_time_afternoon != undefined) ? $scope.day.friday.end_time_afternoon : 0;
 
-				add(l, $scope.modalDisplay[0], beginMorning, endMorning, beginAfternoon, endAfternoon);	
-				}
-			else {
+				add(l, $scope.modalDisplay[0], beginMorning, endMorning, beginAfternoon, endAfternoon);
+			} else {
 				add(l, $scope.modalDisplay[4], 0, 0, 0, 0);
 			}
 
 			if ($scope.day.saturday != undefined) {
 				var beginMorning = ($scope.day.saturday.begin_time_morning != undefined) ? $scope.day.saturday.begin_time_morning : 0;
 				var endMorning = ($scope.day.saturday.end_time_morning != undefined) ? $scope.day.saturday.end_time_morning : 0;
-				
-				add(l, $scope.modalDisplay[0], beginMorning, endMorning, beginAfternoon, endAfternoon);	
-				}
-			else {
+
+				add(l, $scope.modalDisplay[0], beginMorning, endMorning, beginAfternoon, endAfternoon);
+			} else {
 				add(l, $scope.modalDisplay[5], 0, 0, 0, 0);
 			}
 
@@ -206,6 +199,10 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 			fridayDay + "/" + fridayMonth + "/" + friday.getFullYear(),
 			saturdayDay + "/" + saturdayMonth + "/" + saturday.getFullYear()
 		);
+
+		$scope.day.monday.begin_time_morning = new Date(monday.getFullYear(), mondayMonth, mondayDay, 08, 08, 00);
+
+
 		days.push(monday, tuesday, wednesday, thursday, friday, saturday);
 
 		return days;
@@ -271,5 +268,6 @@ app.controller('HandleWeekCtrl', ['$scope', '$cookieStore', '$window', '$http', 
 
 		$scope.weeks.push(week);
 	}
+
 
 }]);
