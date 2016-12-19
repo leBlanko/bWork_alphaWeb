@@ -6,6 +6,7 @@ var httpServer = require("http").createServer(app);
 var userRoute = require('./routes/user');
 var dayRoute = require('./routes/day');
 var templateRoute = require('./routes/template');
+var timeDimensionRoute = require('./routes/timeDimension');
 var connection = require('./config/connection');
 
 // set our port
@@ -35,6 +36,7 @@ connection.init();
 userRoute.configure(app);
 dayRoute.configure(app);
 templateRoute.configure(app);
+timeDimensionRoute.configure(app);
 
 // shoutout to the user                     
 console.log('Server available at http://localhost:' + port);

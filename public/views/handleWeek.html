@@ -125,10 +125,10 @@
                 <h4>Selectionne ta semaine </h4>
                 <ui-select name='week' ng-model='week' ng-required='true' theme='bootstrap' ng-change="setScope(week)">
                     <ui-select-match placeholder='Sélectionner une semaine'>
-                        <span> Semaine {{week.number}} ({{week.firstday}} - {{week.lastday}})</span>
+                        <span> Semaine {{week.week}} ({{week.begin_week}} - {{week.end_week}})</span>
                     </ui-select-match>
                     <ui-select-choices repeat="week in weeks | filter: $select.search">
-                       <span>Semaine {{week.number}} ({{week.firstday}} - {{week.lastday}})</span>
+                        <span> Semaine {{week.week}} ({{week.begin_week}} - {{week.end_week}})</span>
                     </ui-select-choices>
                 </ui-select>
             </div>
