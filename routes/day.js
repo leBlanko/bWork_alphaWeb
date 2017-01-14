@@ -18,9 +18,12 @@ module.exports = {
 			day.create(req.body, res);
 		});
 
-		app.put('/day/:minSup/id/:id', function(req, res) {
-			console.log(req.params.minSup);
-			day.update(req.params.minSup, req.params.id, res);
+		app.put('/day/:minSup/id/:id/', function(req, res) {
+			var d = {
+				id: req.params.id,
+				minSup: req.params.minSup
+			}
+			day.update(d, res);
 		});
 	}
 };

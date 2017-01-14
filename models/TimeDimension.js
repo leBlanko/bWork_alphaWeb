@@ -40,4 +40,13 @@ TimeDimension.prototype.getTimeDimensionsByYearAndFirstAndLastDayByWeek = functi
 	})
 }
 
+TimeDimension.prototype.getTimeDimensionsByStartAndEndDateOfWeek = function(startDate, endDate, res) {
+	connection.acquire(function(err, con) {
+		con.query('SELECT db_date FROM time_dimension where db_date BETWEEN ? and ? and day_name != "Sunday" order by db_date', [startDate, endDate], function(err, result) {
+			con.release();
+			res.send(result);
+		})
+	})
+}
+
 module.exports = new TimeDimension();

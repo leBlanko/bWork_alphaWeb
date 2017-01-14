@@ -38,11 +38,10 @@ angular.module('bWork_alphaWeb')
                     );
 
                     return deferred.promise;
-                }
+                };
 
-
-                this.getTemplateById = function(id) {
-                    var promise = $http.get('/template/' + id + '/');
+                this.getTimeDimensionsByStartAndEndDateOfWeek = function(startDate, endDate) {
+                    var promise = $http.get('/timeDimension/startDate/' + moment(startDate).format('YYYY-MM-DD') + '/endDate/' + moment(endDate).format('YYYY-MM-DD'));
                     var deferred = $q.defer();
 
                     promise.then(

@@ -45,7 +45,7 @@
                 </div>
 
                	<div class="row">
-					<button class="btn btn-success" ng-click="showModalDay = true" style="margin-top: 5px;">Ajouter heure supp'</button>
+					<button class="btn btn-success" ng-click="showModal()" style="margin-top: 5px;">Ajouter heure supp'</button>
 				</div>
 
 				<modal visible="showModalDay">
@@ -65,7 +65,7 @@
 		                </center>
 		            </modal-body>
 	            <modal-footer>
-	                <button class="btn btn-success btn-cons ladda-button" data-style='expand-left' ng-click="addSup()" style="margin-top: 10px;">Ajouter</button>
+	                <button class="btn btn-success btn-cons ladda-button" data-style='expand-left' ng-disabled="!day.sup" ng-click="addSup()" style="margin-top: 10px;">Ajouter</button>
 	            </modal-footer>
 	        </div>
 	    </modal>

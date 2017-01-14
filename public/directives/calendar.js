@@ -41,6 +41,8 @@ app.directive("calendar", ["moment", "dayData", function(moment, dayData) {
                         }
                         scope.schedule = schedule;
                         scope.id = schedule.id;
+                    } else {
+                        scope.id = undefined;
                     }
                 })
             };

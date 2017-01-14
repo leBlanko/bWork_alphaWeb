@@ -75,6 +75,7 @@ angular.module('bWork_alphaWeb')
 
 
                 this.update = function(day) {
+                    console.log(day);
                     var promise = $http.put('/day/' + day.minSup + '/id/' + day.id);
                     var deferred = $q.defer();
 

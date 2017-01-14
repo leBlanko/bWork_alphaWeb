@@ -113,7 +113,6 @@ Day.prototype.update = function(day, res) {
 		con.query('update day set ? where id = ?', [day, day.id], function(err, result) {
 			con.release();
 			if (err) {
-				console.log(err);
 				res.send({
 					status: 1,
 					message: 'Day update failed'
