@@ -36,6 +36,11 @@ angular.module('bWork_alphaWeb', ['ngResource', 'ngMessages', 'ngAnimate', 'toas
         controller: 'EditWeekCtrl',
         templateUrl: 'views/editWeek.html'
       })
+      .state('exportPDF', {
+        url: '/exportPDF',
+        controller: 'ExportPDFCtrl',
+        templateUrl: 'views/exportPDF.html'
+      })
       .state('login', {
         url: '/login',
         templateUrl: 'views/login.html',
@@ -50,7 +55,7 @@ angular.module('bWork_alphaWeb', ['ngResource', 'ngMessages', 'ngAnimate', 'toas
         controller: 'LogoutCtrl'
       })
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/handleWeek');
 
 
     function skipIfLoggedIn($q, $auth) {

@@ -46,6 +46,7 @@ app.controller('EditWeekCtrl', [
 			timeDimensionData.getTimeDimensionsByStartAndEndDateOfWeek(week.begin_week, week.end_week).then(function(data) {
 				if (data.data.length > 0) {
 					data.data.forEach(function(d) {
+						console.log(d);
 						$scope.days.push(moment(d.db_date).format('YYYY/MM/DD'));
 					})
 				}
