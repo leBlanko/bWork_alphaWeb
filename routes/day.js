@@ -14,6 +14,9 @@ module.exports = {
 		app.get('/day/:day/month/:month/year/:year/', function(req, res) {
 			day.getDayByDayAndMonthAndYear(req.params.day, req.params.month, req.params.year, res);
 		})
+		app.get('/day/:first_day_year/:last_day_year/:first_day_month/:last_day_month/:first_day_day/:last_day_day/', function(req, res) {
+			day.getDaysByFirstAndLastDay(req.params.first_day_year, req.params.last_day_year, req.params.first_day_month, req.params.last_day_month, req.params.first_day_day, req.params.last_day_day, res);
+		})
 		app.post('/day/', function(req, res) {
 			day.create(req.body, res);
 		});

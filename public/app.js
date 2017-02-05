@@ -2,29 +2,15 @@ angular.module('bWork_alphaWeb', ['ngResource', 'ngMessages', 'ngAnimate', 'toas
   .config(function($stateProvider, $urlRouterProvider, $authProvider, $httpProvider) {
 
     $stateProvider
-      .state('home', {
-        url: '/',
-        controller: 'HomeCtrl',
-        templateUrl: 'views/home.html',
-        /*resolve: {
-          loginRequired: loginRequired
-        }*/
-      })
       .state('handleWeek', {
         url: '/handleWeek',
         controller: 'HandleWeekCtrl',
         templateUrl: 'views/handleWeek.html',
-        /*resolve: {
-          loginRequired: loginRequired
-        }*/
       })
       .state('handleTemplate', {
         url: '/handleTemplate',
         controller: 'HandleTemplateCtrl',
         templateUrl: 'views/handleTemplate.html',
-        /*resolve: {
-          loginRequired: loginRequired
-        }*/
       })
       .state('addSup', {
         url: '/addSup',

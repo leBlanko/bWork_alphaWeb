@@ -76,6 +76,15 @@ Day.prototype.getDayById = function(id, res) {
 		});
 	});
 }
+
+Day.prototype.getDaysByFirstAndLastDay = function(first_day_year, first_day_month, first_day_day, last_day_year, last_day_month, last_day_day, res) {
+	connection.acquire(function(err, con) {
+		con.query('select * from day d  where d.year BETWEEN ? and ? and d.month BETWEEN ? and ? and d.day BETWEEN ? and ?', [first_day_year, last_day_year, first_day_month, last_day_month, first_day_day, last_day_day], function(err, result) {
+			con.release();
+			res.send(result);
+		})
+	})
+}
 Day.prototype.getDayByDayAndMonthAndYear = function(day, month, year, res) {
 	connection.acquire(function(err, con) {
 		con.query('select * from day where day = ? and month = ? and year = ?', [day, month, year], function(err, result) {
